@@ -11,12 +11,24 @@ practice
 
 
 - [] Main menu
+- [] music selection
+- [] start game button
+
 - [] paddles
+
 - [] pingpong ball
+
 - [] scoreboard
+
 - [] timer
+
 - [] speed counter for ball
+
 - [] win/lose
+
 - [] robot/2 player
+
 - [] decorations
+
+
 # easter eggs
