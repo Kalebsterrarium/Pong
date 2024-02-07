@@ -10,10 +10,13 @@ void setup() {
   menuWidth=displayWidth;
   menuHeight=displayHeight;
   //an object  is ... see the class
-  Ball myBall = new Ball();
-  Ball yourBall = new Ball();
+  Ball myBall = new Ball(); //myball = instance of Ball
+  //Ball yourBall = new Ball();
+  println("HELLO");
+  exit(); //mimics garbages collection of all local variables
 }
-
+//garbage collection happens here
+//
 void draw() {
   //ball
   ballx=mouseX;
