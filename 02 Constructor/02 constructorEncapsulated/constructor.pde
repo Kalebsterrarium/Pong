@@ -1,7 +1,7 @@
 float menuX,menuY,menuWidth,menuHeight;
 float menuBackGroundRed,menuBackGroundGreen,menuBackGroundBlue,Red,Green,Blue;
 
- Ball myBall = new Ball(); //both halves of constructor
+ Ball myBall; //both halves of constructor
 
 void setup() {
   fullScreen();
@@ -10,7 +10,7 @@ void setup() {
   menuWidth=displayWidth;
   menuHeight=displayHeight;
   //an object  is ... see the class
- 
+ myBall = new Ball();
  
 
   //Ball yourBall = new Ball();
@@ -19,6 +19,17 @@ void setup() {
 }
 //
 void draw() {
+  
+  myBall.draw();
+  
+  
+  
+  
+  
+  
+  
+  
+  
   //ball
   //ballx=mouseX;
   //bally=mouseY;
