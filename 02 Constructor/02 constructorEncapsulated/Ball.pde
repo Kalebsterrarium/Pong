@@ -4,7 +4,7 @@ class Ball
   float ballx,bally,balldiameter;
   color ballcolour;
   float xspeed,yspeed;
-  int xdirection, ydirection;
+  float xdirection, ydirection;
   //
   //constructor
   Ball () {
@@ -18,29 +18,35 @@ class Ball
   bally = starty*1/2;
   balldiameter = referencemeasure*1/30;
   ballcolour = color(random(0,255),random(255),random(255));
-  xspeed= displayWidth/displayWidth;
-  yspeed= displayHeight/displayHeight;
+  xspeed= 9;
+  yspeed= 9;
   xdirection=-1;//hard code will change 
   ydirection=-1;//hard code will change
   }//end constructor
   //
   void draw() { //ball
+  noStroke();
    fill(ballcolour);//CAUTION: must reset defaults
    ellipse(ballx,bally,balldiameter,balldiameter);
    fill(0);
+  stroke(1);
+   step();
+   
   }//end draw
   void step() {
+     bounce();
     ballx += xspeed;
     bally += yspeed;
   }//end step
   void bounce() {
-    if () {
-      xspeed *= -1*xdirection;
+    if ( ballx < 0+(balldiameter*1/2) || ballx > displayWidth-(balldiameter*1/2)) {
+      xspeed *=xdirection;
     }
-    if () {
+   if (bally < 0+(balldiameter*1/2) || bally > displayHeight-(balldiameter*1/2)) {
+     yspeed *=ydirection;
     } 
   }//end bounce
-} //End Ball
+}//End Ball
 //
   
  

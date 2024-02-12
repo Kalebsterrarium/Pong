@@ -19,7 +19,10 @@ void setup() {
 }
 //
 void draw() {
-  
+  //menu
+   fill(menuBackGroundRed,menuBackGroundGreen,menuBackGroundBlue);//BackGround Colour
+ rect(menuX,menuY,menuWidth,menuHeight);//BackGround
+ //
   myBall.draw();
   
   
@@ -39,10 +42,6 @@ void draw() {
  menuBackGroundRed=48;
  menuBackGroundGreen=213;
   menuBackGroundBlue=200;
-  //
-  //menu draw
-//  fill(menuBackGroundRed,menuBackGroundGreen,menuBackGroundBlue);//BackGround Colour
-// rect(menuX,menuY,menuWidth,menuHeight);//BackGround
   //
   //ball draw
  // fill(#FF0000);//ball colour
