@@ -18,10 +18,10 @@ class Ball
   bally = starty*1/2;
   balldiameter = referencemeasure*1/30;
   ballcolour = color(random(0,255),random(255),random(255));
-  xspeed= 9;
-  yspeed= 9;
-  xdirection=-1;//hard code will change 
-  ydirection=-1;//hard code will change
+  xspeed= xdirection();
+  yspeed= ydirection();
+  xdirection= -1;
+  ydirection= -1;//hard code will change
   }//end constructor
   //
   void draw() { //ball
@@ -46,6 +46,16 @@ class Ball
      yspeed *=ydirection;
     } 
   }//end bounce
+  float xdirection() {  
+   float xdirection = int(random(10));//hard code will change
+    
+return xdirection  ;
+  }
+  float ydirection() {  
+   float ydirection = int(random(10));//hard code will change
+   
+return ydirection  ;
+  }
 }//End Ball
 //
   
