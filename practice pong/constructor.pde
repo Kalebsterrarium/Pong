@@ -6,6 +6,8 @@ color player1goalcolour,player2goalcolour;
  Ball myBall; //both halves of constructor
  Ball[] fireworks = new Ball[25];
  Ball yourBall;
+ lines[] goallines = new lines[3];
+
 void setup() {
   fullScreen();
   menuX=0;
@@ -14,19 +16,23 @@ void setup() {
   menuHeight=displayHeight;
   //an object  is ... see the class
  myBall = new Ball();
+ 
   for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball( displayWidth*-1, displayHeight*-1, 0.981);
+  }
+  for (int i=0; i < goallines.length; i++) {
+    goallines[i] = new lines(player1goalx + player1goalwidth*1/9,displayHeight*1/2,(player1goalx + player1goalwidth) - player1goalwidth*1/9,displayHeight*1/2);
   }
  yourBall = new Ball();
 
   //Ball yourBall = new Ball();
   player1goalx=0;
   player1goaly=0;
-  player1goalwidth=displayWidth*1/8;
+  player1goalwidth=displayWidth*1/9;
   player1goalheight=displayHeight;
-  player2goalx=displayWidth*7/8;
+  player2goalx=displayWidth*8/9;
   player2goaly=0;
-  player2goalwidth=displayWidth*1/8;
+  player2goalwidth=displayWidth*1/9;
   player2goalheight=displayHeight;
   
 }//end setup
@@ -62,7 +68,10 @@ void draw() {
     fireworks[i].draw();
   }
   yourBall.draw();
-  
+  for (int i=0; i < goallines.length; i++) {
+    goallines[i].draw();
+    println("not drawing");
+  }
   
   
   
