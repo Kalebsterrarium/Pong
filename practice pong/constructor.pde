@@ -28,11 +28,11 @@ void setup() {
   //Ball yourBall = new Ball();
   player1goalx=0;
   player1goaly=0;
-  player1goalwidth=displayWidth*1/9;
+  player1goalwidth=displayWidth*1/14;
   player1goalheight=displayHeight;
-  player2goalx=displayWidth*8/9;
+  player2goalx=displayWidth*13/14;
   player2goaly=0;
-  player2goalwidth=displayWidth*1/9;
+  player2goalwidth=displayWidth*1/14;
   player2goalheight=displayHeight;
   
 }//end setup
@@ -63,15 +63,19 @@ void draw() {
    player2goalcolour = #30D5C8;
  }
  //
+ for (int i=0; i < goallines.length; i++) {
+    goallines[i].draw();
+    println("not drawing");
+  }
+   for (int i=0; i < goallines.length; i++) {
+    goallines[i] = new lines(displayWidth*1/3,displayHeight*1/3,displayWidth*2/3,displayHeight*2/3);
+    println("not drawing");
+  }
   myBall.draw();
    for (int i=0; i < fireworks.length; i++) {
     fireworks[i].draw();
   }
   yourBall.draw();
-  for (int i=0; i < goallines.length; i++) {
-    goallines[i].draw();
-    println("not drawing");
-  }
   
   
   
@@ -102,5 +106,7 @@ void keyPressed() {
 void mousePressed() {
   for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball(mouseX, mouseY, 0.981);
+    
   }
+ 
 }
