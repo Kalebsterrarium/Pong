@@ -4,11 +4,14 @@ float player1goalx,player1goaly,player1goalwidth,player1goalheight;
 float player2goalx,player2goaly,player2goalwidth,player2goalheight;
 color player1goalcolour,player2goalcolour;
 float linechange1, linechange2;
+float mirror;
+boolean ghostballon = false;
  Ball myBall; //both halves of constructor
  Ball[] fireworks = new Ball[25];
  Ball yourBall;
  lines[] goallines = new lines[3];
-paddle mypaddle, yourpaddle;
+ Ball ghostBall;
+//paddle mypaddle, yourpaddle;
 void setup() {
   fullScreen();
   menuX=0;
@@ -17,15 +20,18 @@ void setup() {
   menuHeight=displayHeight;
   //an object  is ... see the class
  myBall = new Ball();
- mypaddle = new paddle(0);
- yourpaddle = new paddle(width);
+ 
+// mypaddle = new paddle(0);
+// yourpaddle = new paddle(width);
   for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball( displayWidth*-1, displayHeight*-1, 0.981);
   }
   for (int i=0; i < goallines.length; i++) {
     goallines[i] = new lines(player1goalx + player1goalwidth*1/9,displayHeight*1/2,(player1goalx + player1goalwidth) - player1goalwidth*1/9,displayHeight*1/2);
   }
+ 
  yourBall = new Ball();
+
 
   //Ball yourBall = new Ball();
   player1goalx=0;
@@ -53,27 +59,28 @@ void draw() {
  rect(player2goalx,player2goaly,player2goalwidth,player2goalheight);
 
  //
- if(myBall.ballx - (myBall.balldiameter/2) <=  player1goalx+player1goalwidth   ) {
+  if(myBall.ballx - (myBall.balldiameter/2) <=  player1goalx+player1goalwidth || yourBall.ballx - (yourBall.balldiameter/2) <=  player1goalx+player1goalwidth ) {
    player1goalcolour = #014D4E ;
-    for (int i=0; i < fireworks.length; i++) {
-    fireworks[i] = new Ball(myBall.ballx, myBall.bally, 50);
-    
-  }
+   
  } else {
    player1goalcolour = #30D5C8;
-   
+ }
+ 
+     if(myBall.ballx - (myBall.balldiameter/2) <=  player1goalx+player1goalwidth   ) {
+  
+    for (int i=0; i < fireworks.length; i++) {
+    fireworks[i] = new Ball(myBall.ballx, myBall.bally, 0.981);
+    
+  }
  }
  if(yourBall.ballx - (yourBall.balldiameter/2) <=  player1goalx+player1goalwidth) {
-   player1goalcolour = #014D4E ;  
+   
     for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball(yourBall.ballx, yourBall.bally, 0.981);
     }
     
- } else {
-   player1goalcolour = #30D5C8;
-   
+ } 
  
- }
  if(myBall.ballx + (myBall.balldiameter/2) >=  player2goalx || yourBall.ballx + (yourBall.balldiameter/2) >=  player2goalx ) {
    player2goalcolour = #014D4E ;
    
@@ -83,23 +90,33 @@ void draw() {
  //
  for (int i=0; i < goallines.length; i++) {
     goallines[i].draw();
-    println("not drawing");
+    
   }
    for (int i=0; i < goallines.length; i++) {
     goallines[i] = new lines(displayWidth*1/3,displayHeight*1/3,displayWidth*2/3,displayHeight*2/3);
-    println("not drawing");
+    
   }
   myBall.draw();
    for (int i=0; i < fireworks.length; i++) {
     fireworks[i].draw();
   }
   yourBall.draw();
+ 
   
-  
-  
-  
-
-  
+   if(myBall.bally < displayHeight/2) {
+     mirror = (displayHeight)-(myBall.bally);
+     println(mirror);
+     println(myBall.bally);
+     println(displayHeight/2);
+     
+  } else {
+    mirror = (displayHeight)-(myBall.bally);
+  }
+println(ghostballon);
+  if (ghostballon == true) {
+ghostBall = new Ball(myBall.ballx,mirror,myBall.ballcolour);
+   ghostBall.draw();
+  } 
   
   
   //ball
@@ -122,6 +139,9 @@ void keyPressed() {
 }
 
 void mousePressed() {
- 
- 
+ if (ghostballon == true) {
+   ghostballon = false;
+ } else {
+   ghostballon = true;
+ }
 }

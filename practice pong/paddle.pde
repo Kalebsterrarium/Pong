@@ -1,4 +1,4 @@
-class paddle {
+/*class paddle {
 //
 //global variables
 float tablex,tabley,tablewidth,tableheight;
@@ -15,7 +15,7 @@ paddle(float paddlestartparameter) {
   paddlewidth=;
   paddleheight=;
   paddlecolour = ;
-  
+ 
   
   
   
@@ -27,3 +27,4 @@ void draw() {}//end draw
 //voids and return
 //
 }//end paddle
+ */

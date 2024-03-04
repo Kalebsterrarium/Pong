@@ -33,6 +33,17 @@ class Ball
     this.yspeed = random(-8, 8);
     this.gravity = gravityParameter;
   } //End Firework Ball
+  Ball (float ballx, float bally, color ghostcolor) {
+    int referencemeasure = (displayWidth < displayHeight) ? displayWidth : displayHeight ;
+    //Ball(); //Place Holder
+    this.ballx = ballx; //ERROR: trigger when the Ball enters goal area
+    this.bally = bally; //ERROR: trigger when the Ball enters goal area
+    this.ballcolour = ghostcolor; //random(), random()-shortcut, casting from float to intin color var
+    this.balldiameter =referencemeasure*1/30;
+    this.xspeed = myBall.xspeed;
+    this.yspeed = myBall.yspeed*-1;
+   
+  } //End Firework Ball
   void draw() { //ball
   noStroke();
    fill(ballcolour);//CAUTION: must reset defaults
