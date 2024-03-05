@@ -6,6 +6,7 @@ class Ball
   float xspeed,yspeed;
   float xdirection, ydirection;
    float gravity=0.0;
+    int ghostTransparency = 255;
   //
   //constructor
   Ball () {
@@ -35,6 +36,7 @@ class Ball
   } //End Firework Ball
   Ball (float ballx, float bally, color ghostcolor) {
     int referencemeasure = (displayWidth < displayHeight) ? displayWidth : displayHeight ;
+   
     //Ball(); //Place Holder
     this.ballx = ballx; //ERROR: trigger when the Ball enters goal area
     this.bally = bally; //ERROR: trigger when the Ball enters goal area
@@ -42,11 +44,11 @@ class Ball
     this.balldiameter =referencemeasure*1/30;
     this.xspeed = myBall.xspeed;
     this.yspeed = myBall.yspeed*-1;
-   
+   this.ghostTransparency = 150;
   } //End Firework Ball
   void draw() { //ball
   noStroke();
-   fill(ballcolour);//CAUTION: must reset defaults
+   fill(ballcolour,ghostTransparency);//CAUTION: must reset defaults
    ellipse(ballx,bally,balldiameter,balldiameter);
    fill(0);
   stroke(1);

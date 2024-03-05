@@ -2,7 +2,7 @@ float menuX,menuY,menuWidth,menuHeight;
 float menuBackGroundRed,menuBackGroundGreen,menuBackGroundBlue,Red,Green,Blue;
 float player1goalx,player1goaly,player1goalwidth,player1goalheight;
 float player2goalx,player2goaly,player2goalwidth,player2goalheight;
-color player1goalcolour,player2goalcolour;
+color player1goalcolour,player2goalcolour,fadedballcolour;
 float linechange1, linechange2;
 float mirror;
 boolean ghostballon = false;
@@ -47,6 +47,7 @@ void setup() {
 //
 void draw() {
   //menu
+ 
    noStroke();
    fill(menuBackGroundRed,menuBackGroundGreen,menuBackGroundBlue);//BackGround Colour
  rect(menuX,menuY,menuWidth,menuHeight);//BackGround
@@ -103,19 +104,27 @@ void draw() {
   yourBall.draw();
  
   
-   if(myBall.bally < displayHeight/2) {
+   
      mirror = (displayHeight)-(myBall.bally);
-     println(mirror);
-     println(myBall.bally);
-     println(displayHeight/2);
+    
      
-  } else {
-    mirror = (displayHeight)-(myBall.bally);
-  }
+ 
+    
+  
 println(ghostballon);
   if (ghostballon == true) {
-ghostBall = new Ball(myBall.ballx,mirror,myBall.ballcolour);
+   
+   colorMode(HSB);
+   println(saturation(myBall.ballcolour));
+   println(hue(myBall.ballcolour));
+   println(brightness(myBall.ballcolour));
+   fadedballcolour=color(hue(myBall.ballcolour),(saturation(myBall.ballcolour)-40),brightness(myBall.ballcolour));
+ghostBall = new Ball(myBall.ballx,mirror,fadedballcolour);
    ghostBall.draw();
+   println(saturation(ghostBall.ballcolour));
+   println(hue(ghostBall.ballcolour));
+   println(brightness(ghostBall.ballcolour));
+colorMode(RGB);
   } 
   
   
