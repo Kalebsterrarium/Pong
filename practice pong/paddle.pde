@@ -14,7 +14,7 @@ paddle(float paddlestartparameter, float ballDiameterParameter) {
   tabley=displayHeight/10;
   tableheight= displayHeight * 8/10;
   if (paddlestartparameter == 0) netx = paddlestartparameter;
-  if (paddlestartparameter == displayWidth) netx = paddlestartparameter - netwidth - paddlewidth;
+  if (paddlestartparameter == displayWidth) netx = paddlestartparameter - netwidth*2 - paddlewidth;
   this.paddlex=netx+ netwidth;
   if (paddlestartparameter == displayWidth) netx = paddlestartparameter - netwidth;
   this.paddley= tabley + (tableheight/2) - (paddleheight/2);
@@ -58,7 +58,13 @@ rect(paddlex,paddley,paddlewidth,paddleheight);
 //rect();
 
 
-}//end paddles 
+}//end paddles
+void movepaddledown() {
+  paddley+= paddletraveldistance;// moves paddle down
+}
+void movepaddleup() {
+  paddley-= paddletraveldistance;// moves paddle up
+}
 //
 }//end paddle
  
