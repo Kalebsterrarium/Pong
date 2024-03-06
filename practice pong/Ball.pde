@@ -44,7 +44,7 @@ class Ball
     this.balldiameter =referencemeasure*1/30;
     this.xspeed = myBall.xspeed;
     this.yspeed = myBall.yspeed*-1;
-   this.ghostTransparency = 150;
+   this.ghostTransparency = 130;
   } //End Firework Ball
   void draw() { //ball
   noStroke();

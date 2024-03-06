@@ -11,7 +11,7 @@ boolean ghostballon = false;
  Ball yourBall;
  lines[] goallines = new lines[3];
  Ball ghostBall;
-//paddle mypaddle, yourpaddle;
+paddle mypaddle, yourpaddle;
 void setup() {
   fullScreen();
   menuX=0;
@@ -21,8 +21,9 @@ void setup() {
   //an object  is ... see the class
  myBall = new Ball();
  
-// mypaddle = new paddle(0);
-// yourpaddle = new paddle(width);
+ mypaddle = new paddle(0,myBall.balldiameter);
+yourpaddle = new paddle(displayWidth, myBall.balldiameter);
+
   for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball( displayWidth*-1, displayHeight*-1, 0.981);
   }
@@ -33,7 +34,7 @@ void setup() {
  yourBall = new Ball();
 
 
-  //Ball yourBall = new Ball();
+  Ball yourBall = new Ball();
   player1goalx=0;
   player1goaly=0;
   player1goalwidth=displayWidth*1/14;
@@ -47,8 +48,7 @@ void setup() {
 //
 void draw() {
   //menu
- 
-   noStroke();
+  noStroke();
    fill(menuBackGroundRed,menuBackGroundGreen,menuBackGroundBlue);//BackGround Colour
  rect(menuX,menuY,menuWidth,menuHeight);//BackGround
  //
@@ -60,6 +60,9 @@ void draw() {
  rect(player2goalx,player2goaly,player2goalwidth,player2goalheight);
 
  //
+ mypaddle.draw();
+ yourpaddle.draw();
+   
   if(myBall.ballx - (myBall.balldiameter/2) <=  player1goalx+player1goalwidth || yourBall.ballx - (yourBall.balldiameter/2) <=  player1goalx+player1goalwidth ) {
    player1goalcolour = #014D4E ;
    
