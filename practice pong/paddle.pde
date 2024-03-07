@@ -3,7 +3,7 @@ class paddle {
 //global variables
 float tablex,tabley,tablewidth,tableheight;
 float netx, nety, netwidth, netheight;
-float paddlex,paddley,paddlewidth,paddleheight;
+float paddlex,paddley,paddlewidth,paddleheight,paddlestartheight,paddletraveldistance;
 color paddlecolour;
 //
 //overloaded contructor
@@ -17,11 +17,13 @@ paddle(float paddlestartparameter, float ballDiameterParameter) {
   if (paddlestartparameter == displayWidth) netx = paddlestartparameter - netwidth*2 - paddlewidth;
   this.paddlex=netx+ netwidth;
   if (paddlestartparameter == displayWidth) netx = paddlestartparameter - netwidth;
-  this.paddley= tabley + (tableheight/2) - (paddleheight/2);
   
-  paddleheight=tableheight/5;
+    this.paddlestartheight=0.2;//if easter egg number must be tracked 
+
+  this.paddleheight=tableheight* paddlestartheight;
+  this.paddley= tabley + (tableheight/2) - (paddleheight/2);
   paddlecolour = #000000;
- 
+ this.paddletraveldistance = 5;//speed of paddle
   
   
   
@@ -61,9 +63,11 @@ rect(paddlex,paddley,paddlewidth,paddleheight);
 }//end paddles
 void movepaddledown() {
   paddley+= paddletraveldistance;// moves paddle down
+  if(paddley > tabley+tableheight-paddleheight) paddley = tabley+tableheight-paddleheight;
 }
 void movepaddleup() {
   paddley-= paddletraveldistance;// moves paddle up
+  if(paddley < tabley) paddley = tabley;
 }
 //
 }//end paddle
