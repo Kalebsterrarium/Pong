@@ -5,6 +5,7 @@ float tablex,tabley,tablewidth,tableheight;
 float netx, nety, netwidth, netheight;
 float paddlex,paddley,paddlewidth,paddleheight,paddlestartheight,paddletraveldistance;
 color paddlecolour;
+boolean up=false,down=false;
 //
 //overloaded contructor
 //purpose: left and right paddles
@@ -34,6 +35,8 @@ void draw() {
 fill(paddlecolour);
 paddles();
 fill(0);
+if(up == true) movepaddleup();
+ if(down == true) movepaddledown() ;
 
 
 
@@ -64,10 +67,12 @@ rect(paddlex,paddley,paddlewidth,paddleheight);
 void movepaddledown() {
   paddley+= paddletraveldistance;// moves paddle down
   if(paddley > tabley+tableheight-paddleheight) paddley = tabley+tableheight-paddleheight;
+  down = false;
 }
 void movepaddleup() {
   paddley-= paddletraveldistance;// moves paddle up
   if(paddley < tabley) paddley = tabley;
+  up =false;
 }
 //
 }//end paddle

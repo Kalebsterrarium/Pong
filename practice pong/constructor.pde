@@ -5,7 +5,7 @@ float player2goalx,player2goaly,player2goalwidth,player2goalheight;
 color player1goalcolour,player2goalcolour,fadedballcolour;
 float linechange1, linechange2;
 float mirror;
-boolean ghostballon = false,up=false,down=false;
+boolean ghostballon = false;
  Ball myBall; //both halves of constructor
  Ball[] fireworks = new Ball[25];
  Ball yourBall;
@@ -60,6 +60,8 @@ void draw() {
  rect(player2goalx,player2goaly,player2goalwidth,player2goalheight);
 
  //
+
+ 
  mypaddle.draw();
  yourpaddle.draw();
    
@@ -147,10 +149,10 @@ colorMode(RGB);
 }
 
 void keyPressed() {
-  if (key == 'w' | key=='W') mypaddle.movepaddleup() ;
-  if(key=='s' | key=='S')mypaddle.movepaddledown();
-  if(key==CODED & keyCode==UP) yourpaddle.movepaddleup();
-  if(key==CODED & keyCode==DOWN) yourpaddle.movepaddledown();
+  if (key == 'w' | key=='W') mypaddle.up = true ;
+  if(key=='s' | key=='S') mypaddle.down = true;
+  if(key==CODED & keyCode==UP) yourpaddle.up = true;
+  if(key==CODED & keyCode==DOWN) yourpaddle.down =true;
 }
 
 void mousePressed() {
