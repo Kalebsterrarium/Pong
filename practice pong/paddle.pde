@@ -32,6 +32,7 @@ paddle(float paddlestartparameter, float ballDiameterParameter) {
 }
 //
 void draw() {
+  noStroke();
 fill(paddlecolour);
 paddles();
 fill(0);
@@ -67,13 +68,32 @@ rect(paddlex,paddley,paddlewidth,paddleheight);
 void movepaddledown() {
   paddley+= paddletraveldistance;// moves paddle down
   if(paddley > tabley+tableheight-paddleheight) paddley = tabley+tableheight-paddleheight;
-  down = false;
+  //down = false;
 }
 void movepaddleup() {
   paddley-= paddletraveldistance;// moves paddle up
   if(paddley < tabley) paddley = tabley;
-  up =false;
+  //up =false;
 }
 //
+void keypressedWASD() {
+  if (key == 'w' | key=='W') mypaddle.up = true ;
+  if(key=='s' | key=='S') mypaddle.down = true;
+}
+
+void keypressedARROW() {
+  if(key==CODED & keyCode==UP) yourpaddle.up = true;
+  if(key==CODED & keyCode==DOWN) yourpaddle.down =true;
+}
+
+void keyreleasedWASD() {
+  if (key == 'w' | key=='W') mypaddle.up = false ;
+  if(key=='s' | key=='S') mypaddle.down = false;
+}
+
+void keyreleasedARROW() {
+  if(key==CODED & keyCode==UP) yourpaddle.up = false;
+  if(key==CODED & keyCode==DOWN) yourpaddle.down =false;
+}
 }//end paddle
  

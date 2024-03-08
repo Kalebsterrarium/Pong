@@ -64,9 +64,9 @@ void draw() {
  
  mypaddle.draw();
  yourpaddle.draw();
-   
+   myBall.tableyupdate(mypaddle.tabley);
   if(myBall.ballx - (myBall.balldiameter/2) <=  player1goalx+player1goalwidth || yourBall.ballx - (yourBall.balldiameter/2) <=  player1goalx+player1goalwidth ) {
-   player1goalcolour = #014D4E ;
+   //player1goalcolour = #014D4E ;
    
  } else {
    player1goalcolour = #30D5C8;
@@ -112,8 +112,10 @@ void draw() {
    
      mirror = (displayHeight)-(myBall.bally);
     
-     
- 
+     if(myBall.ballx - myBall.balldiameter/2 < mypaddle.paddlex + mypaddle.paddlewidth  && myBall.ballx > mypaddle.paddlex && myBall.bally < mypaddle.paddley+mypaddle.paddleheight && myBall.bally > mypaddle.paddley) {
+      myBall.xspeed *=-1;
+    }
+  
     
   
 println(ghostballon);
@@ -146,15 +148,17 @@ colorMode(RGB);
   //ball draw
  // fill(#FF0000);//ball colour
  // ellipse( ballx,bally,balldiameter,balldiameter);//ball
-}
+}//end draw
 
 void keyPressed() {
-  if (key == 'w' | key=='W') mypaddle.up = true ;
-  if(key=='s' | key=='S') mypaddle.down = true;
-  if(key==CODED & keyCode==UP) yourpaddle.up = true;
-  if(key==CODED & keyCode==DOWN) yourpaddle.down =true;
+  mypaddle.keypressedWASD();
+  yourpaddle.keypressedARROW();
+  
 }
-
+void keyReleased() {
+  mypaddle.keyreleasedWASD();
+  yourpaddle.keyreleasedARROW();
+}
 void mousePressed() {
  if (ghostballon == true) {
    ghostballon = false;
