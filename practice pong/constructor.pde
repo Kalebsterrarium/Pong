@@ -64,7 +64,7 @@ void draw() {
  
  mypaddle.draw();
  yourpaddle.draw();
-   myBall.tableyupdate(mypaddle.tabley);
+   myBall.tableyupdate(mypaddle.tabley,mypaddle.tableheight,mypaddle.tablewidth,mypaddle.tablex,mypaddle.paddlex,yourpaddle.paddlex,mypaddle.paddley,yourpaddle.paddley,mypaddle.paddlewidthparameter, mypaddle.paddleheightparameter, yourpaddle.paddleheightparameter);
   if(myBall.ballx - (myBall.balldiameter/2) <=  player1goalx+player1goalwidth || yourBall.ballx - (yourBall.balldiameter/2) <=  player1goalx+player1goalwidth ) {
    //player1goalcolour = #014D4E ;
    

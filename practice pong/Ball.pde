@@ -87,8 +87,15 @@ class Ball
     }
     return ydirection;
   }
-  void tableyupdate ( float tableyparameter) {
+  void tableyupdate ( float tableyparameter, float tableheightparameter, float tablewidthparameter, float tablexparameter, float mypaddlexparameter,float yourpaddlexparameter,float mypaddleyparameter, float yourpaddleyparameter, float paddlewidthparameter, float mypaddleheightparameter,float yourpaddleheightparameter) {
     tabley= tableyparameter;
+    tableheight = tableheightparameter;
+   
+    tablewidth = tablexparameter + tablewidthparameter;
+  paddlex =  (ballx < tablewidth*1/2) ? mypaddlexparameter: yourpaddlexparameter ; 
+  paddley= (ballx < tablewidth*1/2) ? mypaddleyparameter: yourpaddleyparameter ; 
+    paddlewidth = paddlewidthparameter;
+    paddleheight = paddleheightparameter;
   }
 }//End Ball
 //
