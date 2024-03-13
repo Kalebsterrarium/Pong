@@ -7,7 +7,7 @@ class Ball
   float xdirection, ydirection;
    float gravity=0.0;
     int ghostTransparency = 255;
-    float tabley;
+     float tabley, tablewidth, tableheight, paddlex, paddley, paddlewidth, paddleheight;
   //
   //constructor
   Ball () {
@@ -63,7 +63,10 @@ class Ball
     bally += yspeed;
   }//end step
   void bounce() {
-    if ( ballx < 0+(balldiameter*1/2) || ballx > displayWidth-(balldiameter*1/2)) {
+    if(ballx< tablewidth*1/2 && ballx - balldiameter/2 < paddlex + paddlewidth  && ballx > paddlex && bally < paddley+paddleheight && bally > paddley) {
+      exit();
+    }
+    if ( ballx < 0+(balldiameter*1/2) || ballx > displayWidth-(balldiameter*1/2) ) {
       xspeed *=-1;
     }
     
@@ -74,16 +77,16 @@ class Ball
     } 
   }//end bounce
   float xdirection() {  
-    float xdirection = int (random (-10, 10) ); //float, truncated, must be 2 minimum
+    float xdirection = int (random (-1, 1) ); //float, truncated, must be 2 minimum
     while ( xdirection == 0 ) {
-      xdirection = int (random (-10, 10) ); //variable must be populated first
+      xdirection = int (random (-1, 1) ); //variable must be populated first
     }
     return xdirection;
   }
   float ydirection() {  
-   float ydirection = int (random (-10, 10) ); //float, truncated, must be 2 minimum
+   float ydirection = int (random (-1, 1) ); //float, truncated, must be 2 minimum
     while ( ydirection == 0 ) {
-      ydirection = int (random (-10, 10) ); //variable must be populated first
+      ydirection = int (random (-1, 1) ); //variable must be populated first
     }
     return ydirection;
   }
@@ -95,7 +98,7 @@ class Ball
   paddlex =  (ballx < tablewidth*1/2) ? mypaddlexparameter: yourpaddlexparameter ; 
   paddley= (ballx < tablewidth*1/2) ? mypaddleyparameter: yourpaddleyparameter ; 
     paddlewidth = paddlewidthparameter;
-    paddleheight = paddleheightparameter;
+    paddleheight =  ( ballx < tablewidth*1/2 ) ? mypaddleheightparameter : yourpaddleheightparameter;
   }
 }//End Ball
 //

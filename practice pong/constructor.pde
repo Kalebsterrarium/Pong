@@ -64,28 +64,30 @@ void draw() {
  
  mypaddle.draw();
  yourpaddle.draw();
-   myBall.tableyupdate(mypaddle.tabley,mypaddle.tableheight,mypaddle.tablewidth,mypaddle.tablex,mypaddle.paddlex,yourpaddle.paddlex,mypaddle.paddley,yourpaddle.paddley,mypaddle.paddlewidthparameter, mypaddle.paddleheightparameter, yourpaddle.paddleheightparameter);
+   myBall.tableyupdate(mypaddle.tabley,mypaddle.tableheight,mypaddle.tablewidth,mypaddle.tablex,mypaddle.paddlex,yourpaddle.paddlex,mypaddle.paddley,yourpaddle.paddley,mypaddle.paddlewidth, mypaddle.paddleheight, yourpaddle.paddleheight);
   if(myBall.ballx - (myBall.balldiameter/2) <=  player1goalx+player1goalwidth || yourBall.ballx - (yourBall.balldiameter/2) <=  player1goalx+player1goalwidth ) {
    //player1goalcolour = #014D4E ;
    
  } else {
    player1goalcolour = #30D5C8;
  }
- 
-     if(myBall.ballx - (myBall.balldiameter/2) <=  player1goalx+player1goalwidth   ) {
-  
+ println(mypaddle.netx);
+ println(mypaddle.netwidth);
+ println(mypaddle.paddlex);
+     if(myBall.ballx - (myBall.balldiameter/2) <=  mypaddle.netx+mypaddle.netwidth   ) {
+  println("bounce parameter working");
     for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball(myBall.ballx, myBall.bally, 0.981);
     
   }
  }
- if(yourBall.ballx - (yourBall.balldiameter/2) <=  player1goalx+player1goalwidth) {
+/* if(yourBall.ballx - (yourBall.balldiameter/2) <=  player1goalx+player1goalwidth) {
    
     for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball(yourBall.ballx, yourBall.bally, 0.981);
     }
     
- } 
+ } */
  
  if(myBall.ballx + (myBall.balldiameter/2) >=  player2goalx || yourBall.ballx + (yourBall.balldiameter/2) >=  player2goalx ) {
    player2goalcolour = #014D4E ;
@@ -111,28 +113,24 @@ void draw() {
   
    
      mirror = (displayHeight)-(myBall.bally);
-    
+    // bad code for ball bounce on paddle
      if(myBall.ballx - myBall.balldiameter/2 < mypaddle.paddlex + mypaddle.paddlewidth  && myBall.ballx > mypaddle.paddlex && myBall.bally < mypaddle.paddley+mypaddle.paddleheight && myBall.bally > mypaddle.paddley) {
       myBall.xspeed *=-1;
     }
-  
+  if(myBall.ballx + myBall.balldiameter/2 > yourpaddle.paddlex   && myBall.ballx < yourpaddle.paddlex + yourpaddle.paddlewidth && myBall.bally < yourpaddle.paddley+yourpaddle.paddleheight && myBall.bally > yourpaddle.paddley) {
+      myBall.xspeed *=-1;
+    }
     
   
-println(ghostballon);
+//ghost ball code
   if (ghostballon == true) {
    
    colorMode(HSB);
-   println(saturation(myBall.ballcolour));
-   println(hue(myBall.ballcolour));
-   println(brightness(myBall.ballcolour));
    fadedballcolour=color(hue(myBall.ballcolour),(saturation(myBall.ballcolour)-40),brightness(myBall.ballcolour));
 ghostBall = new Ball(myBall.ballx,mirror,fadedballcolour);
    ghostBall.draw();
-   println(saturation(ghostBall.ballcolour));
-   println(hue(ghostBall.ballcolour));
-   println(brightness(ghostBall.ballcolour));
 colorMode(RGB);
-  } 
+  } //end ghost ball
   
   
   //ball
