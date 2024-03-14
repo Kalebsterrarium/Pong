@@ -3,13 +3,13 @@ float menuBackGroundRed,menuBackGroundGreen,menuBackGroundBlue,Red,Green,Blue;
 float player1goalx,player1goaly,player1goalwidth,player1goalheight;
 float player2goalx,player2goaly,player2goalwidth,player2goalheight;
 color player1goalcolour,player2goalcolour,fadedballcolour;
-float linechange1 =0, linechange2=0;
+float linechange1, linechange2;
 float mirror;
 boolean ghostballon = false;
  Ball myBall; //both halves of constructor
  Ball[] fireworks = new Ball[25];
  Ball yourBall;
- lines[] goallines = new lines[12];
+ lines[] goallines = new lines[13];
  Ball ghostBall;
 paddle mypaddle, yourpaddle;
 void setup() {
@@ -29,8 +29,6 @@ yourpaddle = new paddle(displayWidth, myBall.balldiameter);
   }
   for (int i=0; i < goallines.length; i++) {
     goallines[i] = new lines(linechange1,linechange2);
-    linechange1+= displayHeight*1/12;
-    linechange2+=displayHeight*1/12;
   }
  
  yourBall = new Ball();
@@ -45,7 +43,8 @@ yourpaddle = new paddle(displayWidth, myBall.balldiameter);
   player2goaly=0;
   player2goalwidth=displayWidth*1/14;
   player2goalheight=displayHeight;
-  
+  linechange1 =0;
+  linechange2 =displayHeight*(1/12)*-1;
 }//end setup
 //
 void draw() {
@@ -98,10 +97,16 @@ void draw() {
    player2goalcolour = #30D5C8;
  }
  //
+ println(goallines[1].lineY1);
+ println((displayHeight*1/12));
  for (int i=0; i < goallines.length; i++) {
     goallines[i] = new lines(linechange1,linechange2);
     linechange1+= displayHeight*1/12;
     linechange2+=displayHeight*1/12;
+    if(linechange2 > displayHeight) {
+      linechange1 = 0;
+      linechange2 = displayHeight*(1/12)*-1;
+    }
   }
  //
  for (int i=0; i < goallines.length; i++) {
