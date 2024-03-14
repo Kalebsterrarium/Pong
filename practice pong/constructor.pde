@@ -74,7 +74,7 @@ void draw() {
  println(mypaddle.netx);
  println(mypaddle.netwidth);
  println(mypaddle.paddlex);
-     if(myBall.ballx - (myBall.balldiameter/2) <=  mypaddle.netx+mypaddle.netwidth   ) {
+     if(myBall.ballx - (myBall.balldiameter/2) >=  mypaddle.netx+mypaddle.netwidth && myBall.ballx - (myBall.balldiameter/2) <= mypaddle.paddlex  ) {
   println("bounce parameter working");
     for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball(myBall.ballx, myBall.bally, 0.981);
@@ -108,7 +108,7 @@ void draw() {
    for (int i=0; i < fireworks.length; i++) {
     fireworks[i].draw();
   }
-  yourBall.draw();
+ // yourBall.draw();
  
   
    

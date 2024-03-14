@@ -24,7 +24,7 @@ paddle(float paddlestartparameter, float ballDiameterParameter) {
   this.paddleheight=tableheight* paddlestartheight;
   this.paddley= tabley + (tableheight/2) - (paddleheight/2);
   paddlecolour = #000000;
- this.paddletraveldistance = 5;//speed of paddle
+ this.paddletraveldistance = 8;//speed of paddle
   
   
   
