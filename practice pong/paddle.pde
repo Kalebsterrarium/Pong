@@ -6,6 +6,7 @@ float netx, nety, netwidth, netheight;
 float paddlex,paddley,paddlewidth,paddleheight,paddlestartheight,paddletraveldistance;
 color paddlecolour;
 boolean up=false,down=false;
+float paddlespaceing;
 //
 //overloaded contructor
 //purpose: left and right paddles
@@ -15,8 +16,8 @@ paddle(float paddlestartparameter, float ballDiameterParameter) {
   tabley=displayHeight/10;
   tableheight= displayHeight * 8/10;
   if (paddlestartparameter == 0) netx = paddlestartparameter;
-  if (paddlestartparameter == displayWidth) netx = paddlestartparameter - netwidth*2 - paddlewidth;
-  this.paddlex=netx+ netwidth;
+  if (paddlestartparameter == displayWidth) netx = paddlestartparameter - netwidth*2 - paddlewidth -30;
+  this.paddlex=netx+ netwidth +15 ;
   if (paddlestartparameter == displayWidth) netx = paddlestartparameter - netwidth;
   
     this.paddlestartheight=0.2;//if easter egg number must be tracked 

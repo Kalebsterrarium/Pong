@@ -8,11 +8,11 @@ class lines {
     this.lineY2=displayHeight*1/2;
   }
   
-  lines(float lineX1,float lineY1, float lineX2, float lineY2) {
+  lines(float linealgo1, float linealgo2) {
     this.lineX1=player1goalx + player1goalwidth*1/9;
-    this.lineY1=displayHeight*1/2;
+    this.lineY1=linealgo1;
     this.lineX2=(player1goalx + player1goalwidth) - player1goalwidth*1/9;
-    this.lineY2=displayHeight*9/20;
+    this.lineY2=linealgo2;
   }
   
   void draw() {
