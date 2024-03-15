@@ -72,23 +72,27 @@ void draw() {
  } else {
    player1goalcolour = #30D5C8;
  }
- println(mypaddle.netx);
- println(mypaddle.netwidth);
- println(mypaddle.paddlex);
+ 
+ println(displayWidth-yourpaddle.netx);
+ println(yourpaddle.paddlex);
+ println(yourpaddle.paddlex+yourpaddle.paddlewidth);
+ println(yourpaddle.netx);
+ println(displayWidth);
      if(myBall.ballx - (myBall.balldiameter/2) >=  mypaddle.netx+mypaddle.netwidth && myBall.ballx - (myBall.balldiameter/2) <= mypaddle.paddlex  ) {
-  println("bounce parameter working");
+ 
     for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball(myBall.ballx, myBall.bally, 0.981);
     
   }
  }
-/* if(yourBall.ballx - (yourBall.balldiameter/2) <=  player1goalx+player1goalwidth) {
-   
+ if(myBall.ballx + (myBall.balldiameter*1/2)  >= yourpaddle.paddlex+yourpaddle.paddlewidth && myBall.ballx + (myBall.balldiameter/2) <= yourpaddle.netx) {
+   println("problem with fireworks drawing");
     for (int i=0; i < fireworks.length; i++) {
-    fireworks[i] = new Ball(yourBall.ballx, yourBall.bally, 0.981);
+    fireworks[i] = new Ball(myBall.ballx, myBall.bally, 0.981);
     }
-    
- } */
+   
+  
+ } 
  
  if(myBall.ballx + (myBall.balldiameter/2) >=  player2goalx || yourBall.ballx + (yourBall.balldiameter/2) >=  player2goalx ) {
    player2goalcolour = #014D4E ;
@@ -97,15 +101,14 @@ void draw() {
    player2goalcolour = #30D5C8;
  }
  //
- println(goallines[1].lineY1);
- println((displayHeight*1/12));
+
  for (int i=0; i < goallines.length; i++) {
     goallines[i] = new lines(linechange1,linechange2);
     linechange1+= displayHeight*1/12;
     linechange2+=displayHeight*1/12;
     if(linechange2 > displayHeight) {
       linechange1 = 0;
-      linechange2 = displayHeight*(1/12)*-1;
+      linechange2 = 0;
     }
   }
  //
