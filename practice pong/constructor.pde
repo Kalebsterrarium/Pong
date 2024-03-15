@@ -9,7 +9,8 @@ boolean ghostballon = false;
  Ball myBall; //both halves of constructor
  Ball[] fireworks = new Ball[25];
  Ball yourBall;
- lines[] goallines = new lines[13];
+ lines[] goallines1 = new lines[13];
+ lines[] goallines2 = new lines[13];
  Ball ghostBall;
 paddle mypaddle, yourpaddle;
 void setup() {
@@ -27,10 +28,12 @@ yourpaddle = new paddle(displayWidth, myBall.balldiameter);
   for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball( displayWidth*-1, displayHeight*-1, 0.981);
   }
-  for (int i=0; i < goallines.length; i++) {
-    goallines[i] = new lines(linechange1,linechange2);
+  for (int i=0; i < goallines1.length; i++) {
+    goallines1[i] = new lines(linechange1,linechange2,mypaddle.netx);
   }
- 
+  for (int i=0; i < goallines2.length; i++) {
+    goallines2[i] = new lines(linechange1,linechange2,yourpaddle.netx);
+  }
  yourBall = new Ball();
 
 
@@ -52,7 +55,7 @@ void draw() {
   noStroke();
    fill(menuBackGroundRed,menuBackGroundGreen,menuBackGroundBlue);//BackGround Colour
  rect(menuX,menuY,menuWidth,menuHeight);//BackGround
- //
+ /*
   fill(player1goalcolour);//player1goal Colour
   stroke(#014D4E);
   strokeWeight(5);
@@ -60,7 +63,7 @@ void draw() {
  fill(player2goalcolour);//player2goal Colour
  rect(player2goalx,player2goaly,player2goalwidth,player2goalheight);
 
- //
+ */
 
  
  mypaddle.draw();
@@ -86,7 +89,7 @@ void draw() {
   }
  }
  if(myBall.ballx + (myBall.balldiameter*1/2)  >= yourpaddle.paddlex+yourpaddle.paddlewidth && myBall.ballx + (myBall.balldiameter/2) <= yourpaddle.netx) {
-   println("problem with fireworks drawing");
+  
     for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball(myBall.ballx, myBall.bally, 0.981);
     }
@@ -102,18 +105,31 @@ void draw() {
  }
  //
 
- for (int i=0; i < goallines.length; i++) {
-    goallines[i] = new lines(linechange1,linechange2);
+ for (int i=0; i < goallines1.length; i++) {
+    goallines1[i] = new lines(linechange1,linechange2,mypaddle.netx);
     linechange1+= displayHeight*1/12;
     linechange2+=displayHeight*1/12;
     if(linechange2 > displayHeight) {
       linechange1 = 0;
-      linechange2 = 0;
+      linechange2 = displayHeight*1/18;
+    }
+  }
+  for (int i=0; i < goallines2.length; i++) {
+    goallines2[i] = new lines(linechange1,linechange2,yourpaddle.netx);
+    linechange1+= displayHeight*1/12;
+    linechange2+=displayHeight*1/12;
+    if(linechange2 > displayHeight) {
+      linechange1 = 0;
+      linechange2 = displayHeight*1/18;
     }
   }
  //
- for (int i=0; i < goallines.length; i++) {
-    goallines[i].draw();
+ for (int i=0; i < goallines1.length; i++) {
+    goallines1[i].draw();
+    
+  }
+   for (int i=0; i < goallines2.length; i++) {
+    goallines2[i].draw();
     
   }
    //

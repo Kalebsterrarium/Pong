@@ -75,16 +75,16 @@ class Ball
     } 
   }//end bounce
   float xdirection() {  
-    float xdirection = int (random (-1, 1) ); //float, truncated, must be 2 minimum
-    while ( xdirection == 0 ) {
-      xdirection = int (random (-1, 1) ); //variable must be populated first
+    float xdirection = int (random (-10, 10) ); //float, truncated, must be 2 minimum
+    while ( xdirection < 5) {
+      xdirection = int (random (-10, 10) ); //variable must be populated first
     }
     return xdirection;
   }
   float ydirection() {  
-   float ydirection = int (random (-1, 1) ); //float, truncated, must be 2 minimum
-    while ( ydirection == 0 ) {
-      ydirection = int (random (-1, 1) ); //variable must be populated first
+   float ydirection = int (random (-10, 10) ); //float, truncated, must be 2 minimum
+    while ( ydirection < 5 ) {
+      ydirection = int (random (-10, 10) ); //variable must be populated first
     }
     return ydirection;
   }
