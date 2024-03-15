@@ -20,8 +20,8 @@ void setup() {
   menuWidth=displayWidth;
   menuHeight=displayHeight;
   //an object  is ... see the class
- myBall = new Ball();
  
+ myBall = new Ball();
  mypaddle = new paddle(0,myBall.balldiameter);
 yourpaddle = new paddle(displayWidth, myBall.balldiameter);
 
@@ -86,14 +86,17 @@ void draw() {
     for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball(myBall.ballx, myBall.bally, 0.981);
     
+   
   }
+   myBall = new Ball();
  }
  if(myBall.ballx + (myBall.balldiameter*1/2)  >= yourpaddle.paddlex+yourpaddle.paddlewidth && myBall.ballx + (myBall.balldiameter/2) <= yourpaddle.netx) {
   
     for (int i=0; i < fireworks.length; i++) {
     fireworks[i] = new Ball(myBall.ballx, myBall.bally, 0.981);
+    
     }
-   
+   myBall = new Ball();
   
  } 
  
