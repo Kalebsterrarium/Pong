@@ -11,19 +11,21 @@ float paddlespaceing;
 //overloaded contructor
 //purpose: left and right paddles
 paddle(float paddlestartparameter, float ballDiameterParameter) {
+  tablewidth=displayWidth;
   netwidth = ballDiameterParameter * 3;
+   tableheight= displayHeight * 1/10;
   paddlewidth= ballDiameterParameter * 1/3;
-  tabley=displayHeight/10;
-  tableheight= displayHeight * 8/10;
+  tabley=(paddlestartparameter == 0 ) ? 0 : displayHeight - tableheight;
+
   if (paddlestartparameter == 0) netx = paddlestartparameter;
   if (paddlestartparameter == displayWidth) netx = paddlestartparameter - netwidth*2 - paddlewidth -30;
   this.paddlex=netx+ netwidth +15 ;
   if (paddlestartparameter == displayWidth) netx = paddlestartparameter - netwidth;
   
-    this.paddlestartheight=0.2;//if easter egg number must be tracked 
+    this.paddlestartheight=1.6;//if easter egg number must be tracked 
 
   this.paddleheight=tableheight* paddlestartheight;
-  this.paddley= tabley + (tableheight/2) - (paddleheight/2);
+  this.paddley= displayHeight*1/2 - paddleheight*1/2;
   paddlecolour = #000000;
  this.paddletraveldistance = 8;//speed of paddle
   
@@ -39,8 +41,9 @@ paddles();
 fill(0);
 if(up == true) movepaddleup();
  if(down == true) movepaddledown() ;
-
-
+ fill(#FF0000);
+rect(tablex,tabley,tablewidth,tableheight);
+fill(0);
 
 
 
@@ -68,12 +71,12 @@ rect(paddlex,paddley,paddlewidth,paddleheight);
 }//end paddles
 void movepaddledown() {
   paddley+= paddletraveldistance;// moves paddle down
-  if(paddley > tabley+tableheight-paddleheight) paddley = tabley+tableheight-paddleheight;
+  if(paddley + paddleheight> displayHeight - tableheight) paddley = displayHeight - tableheight - paddleheight;
   //down = false;
 }
 void movepaddleup() {
   paddley-= paddletraveldistance;// moves paddle up
-  if(paddley < tabley) paddley = tabley;
+  if(paddley  <  tableheight) paddley = tableheight ;
   //up =false;
 }
 //

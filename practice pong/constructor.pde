@@ -68,6 +68,8 @@ void draw() {
  
  mypaddle.draw();
  yourpaddle.draw();
+ println(mypaddle.paddleheight);
+ println(yourpaddle.paddleheight);
    myBall.tableyupdate(mypaddle.tabley,mypaddle.tableheight,mypaddle.tablewidth,mypaddle.tablex,mypaddle.paddlex,yourpaddle.paddlex,mypaddle.paddley,yourpaddle.paddley,mypaddle.paddlewidth, mypaddle.paddleheight, yourpaddle.paddleheight);
   if(myBall.ballx - (myBall.balldiameter/2) <=  player1goalx+player1goalwidth || yourBall.ballx - (yourBall.balldiameter/2) <=  player1goalx+player1goalwidth ) {
    //player1goalcolour = #014D4E ;
@@ -76,11 +78,7 @@ void draw() {
    player1goalcolour = #30D5C8;
  }
  
- println(displayWidth-yourpaddle.netx);
- println(yourpaddle.paddlex);
- println(yourpaddle.paddlex+yourpaddle.paddlewidth);
- println(yourpaddle.netx);
- println(displayWidth);
+
      if(myBall.ballx - (myBall.balldiameter/2) >=  mypaddle.netx+mypaddle.netwidth && myBall.ballx - (myBall.balldiameter/2) <= mypaddle.paddlex  ) {
  
     for (int i=0; i < fireworks.length; i++) {
