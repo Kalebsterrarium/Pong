@@ -9,8 +9,8 @@ boolean ghostballon = false;
  Ball myBall; //both halves of constructor
  Ball[] fireworks = new Ball[25];
  Ball yourBall;
- lines[] goallines1 = new lines[13];
- lines[] goallines2 = new lines[13];
+ lines[] goallines1 = new lines[10];
+ lines[] goallines2 = new lines[10];
  Ball ghostBall;
 paddle mypaddle, yourpaddle;
 void setup() {
@@ -46,8 +46,8 @@ yourpaddle = new paddle(displayWidth, myBall.balldiameter);
   player2goaly=0;
   player2goalwidth=displayWidth*1/14;
   player2goalheight=displayHeight;
-  linechange1 =0;
-  linechange2 =displayHeight*(1/12)*-1;
+  linechange1 = mypaddle.tableheight;
+  linechange2 =linechange1 + (yourpaddle.tabley - yourpaddle.tableheight)*1/10;
 }//end setup
 //
 void draw() {
@@ -107,18 +107,18 @@ void draw() {
 
  for (int i=0; i < goallines1.length; i++) {
     goallines1[i] = new lines(linechange1,linechange2,mypaddle.netx);
-    linechange1+= displayHeight*1/12;
-    linechange2+=displayHeight*1/12;
-    if(linechange2 > displayHeight) {
-      linechange1 = 0;
-      linechange2 = displayHeight*1/18;
+    linechange1+= ((yourpaddle.tabley - yourpaddle.tableheight)*1/10);
+    linechange2+=((yourpaddle.tabley - yourpaddle.tableheight)*1/10);
+    if(linechange2 > yourpaddle.tabley) {
+      linechange1 =   mypaddle.tableheight;
+      linechange2 = linechange1 + ((yourpaddle.tabley - yourpaddle.tableheight)*1/10) ;
     }
   }
   for (int i=0; i < goallines2.length; i++) {
     goallines2[i] = new lines(linechange1,linechange2,yourpaddle.netx);
-    linechange1+= displayHeight*1/12;
-    linechange2+=displayHeight*1/12;
-    if(linechange2 > displayHeight) {
+    linechange1+= displayHeight*1/10;
+    linechange2+=displayHeight*1/10;
+    if(linechange2 > yourpaddle.tabley) {
       linechange1 = 0;
       linechange2 = displayHeight*1/18;
     }
@@ -173,7 +173,6 @@ colorMode(RGB);
   menuBackGroundBlue=200;
   //
  println(myBall.xspeed);
- println(myBall.yspeed);
 }//end draw
 
 void keyPressed() {

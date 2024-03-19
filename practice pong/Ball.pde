@@ -76,7 +76,7 @@ class Ball
   }//end bounce
   float xdirection() {  
     float xdirection = int (random (-10, 10) ); //float, truncated, must be 2 minimum
-    if(xdirection > 0) {
+    if(xdirection >= 0) {
     while ( xdirection < 5) {
       xdirection = int (random (-10, 10) ); //variable must be populated first
     }
