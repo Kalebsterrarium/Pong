@@ -68,8 +68,7 @@ void draw() {
  
  mypaddle.draw();
  yourpaddle.draw();
- println(mypaddle.paddleheight);
- println(yourpaddle.paddleheight);
+
    myBall.tableyupdate(mypaddle.tabley,mypaddle.tableheight,mypaddle.tablewidth,mypaddle.tablex,mypaddle.paddlex,yourpaddle.paddlex,mypaddle.paddley,yourpaddle.paddley,mypaddle.paddlewidth, mypaddle.paddleheight, yourpaddle.paddleheight);
   if(myBall.ballx - (myBall.balldiameter/2) <=  player1goalx+player1goalwidth || yourBall.ballx - (yourBall.balldiameter/2) <=  player1goalx+player1goalwidth ) {
    //player1goalcolour = #014D4E ;
@@ -173,9 +172,8 @@ colorMode(RGB);
  menuBackGroundGreen=213;
   menuBackGroundBlue=200;
   //
-  //ball draw
- // fill(#FF0000);//ball colour
- // ellipse( ballx,bally,balldiameter,balldiameter);//ball
+ println(myBall.xspeed);
+ println(myBall.yspeed);
 }//end draw
 
 void keyPressed() {

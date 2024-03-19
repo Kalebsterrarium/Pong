@@ -68,7 +68,7 @@ class Ball
       xspeed *=-1;
     }
     
-   if (bally < tabley+(balldiameter*1/2) || bally > displayHeight-(balldiameter*1/2)- tabley) {
+   if (bally - balldiameter/2 < mypaddle.tabley + tableheight || bally+ balldiameter/2 > yourpaddle.tabley) {
      yspeed *=-1 ;
      
  
@@ -76,15 +76,28 @@ class Ball
   }//end bounce
   float xdirection() {  
     float xdirection = int (random (-10, 10) ); //float, truncated, must be 2 minimum
+    if(xdirection > 0) {
     while ( xdirection < 5) {
       xdirection = int (random (-10, 10) ); //variable must be populated first
     }
+    } else if (xdirection < 0) {
+      while ( xdirection > -5) {
+      xdirection = int (random (-10, 10) ); //variable must be populated first
+    }
+    }
+  
     return xdirection;
   }
   float ydirection() {  
    float ydirection = int (random (-10, 10) ); //float, truncated, must be 2 minimum
-    while ( ydirection < 5 ) {
+   if(ydirection >= 0) {
+   while ( ydirection < 5) {
       ydirection = int (random (-10, 10) ); //variable must be populated first
+    }
+    } else if (ydirection <= 0) {
+      while ( ydirection > -5) {
+      ydirection = int (random (-10, 10) ); //variable must be populated first
+    }
     }
     return ydirection;
   }
