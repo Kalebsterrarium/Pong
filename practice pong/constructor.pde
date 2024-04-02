@@ -9,7 +9,7 @@ boolean ghostballon = false;
  Ball myBall; //both halves of constructor
  Ball[] fireworks = new Ball[25];
  Ball yourBall;
- lines[] goallines1 = new lines[9];
+ lines[] goallines1 = new lines[10];
  lines[] goallines2 = new lines[10];
  Ball ghostBall;
 paddle mypaddle, yourpaddle;
@@ -111,22 +111,25 @@ void draw() {
     goallines1[i] = new lines(linechange1,linechange2,mypaddle.netx);
     linechange1+= ((yourpaddle.tabley - yourpaddle.tableheight)*1/10);
     linechange2+=((yourpaddle.tabley - yourpaddle.tableheight)*1/10);
-    println(goallines1[0].lineY1);
-    println(((yourpaddle.tabley - yourpaddle.tableheight)*1/10));
- if(linechange2 > yourpaddle.tabley) {
+   
+ if(linechange2 > yourpaddle.tabley + 0.01) {
       linechange1 =  mypaddle.tableheight;
       linechange2 = linechange1 + ((yourpaddle.tabley - yourpaddle.tableheight)*1/10) ;
     }
   }
+  linechange1 =  mypaddle.tableheight;
+  linechange2 = linechange1 + ((yourpaddle.tabley - yourpaddle.tableheight)*1/10) ;
   for (int i=0; i < goallines2.length; i++) {
     goallines2[i] = new lines(linechange1,linechange2,yourpaddle.netx);
-    linechange1+= displayHeight*1/10;
-    linechange2+=displayHeight*1/10;
-    if(linechange2 > yourpaddle.tabley) {
-      linechange1 = 0;
-      linechange2 = displayHeight*1/18;
+    linechange1+= ((yourpaddle.tabley - yourpaddle.tableheight)*1/10);
+    linechange2+=((yourpaddle.tabley - yourpaddle.tableheight)*1/10);
+    if(linechange2 > yourpaddle.tabley + 0.01) {
+      linechange1 = mypaddle.tableheight;
+      linechange2 = linechange1 + ((yourpaddle.tabley - yourpaddle.tableheight)*1/10);
     }
   }
+  linechange1 = mypaddle.tableheight;
+  linechange2 =linechange1 + ((yourpaddle.tabley - yourpaddle.tableheight)*1/10) ;
  //
  for (int i=0; i < goallines1.length; i++) {
     goallines1[i].draw();
