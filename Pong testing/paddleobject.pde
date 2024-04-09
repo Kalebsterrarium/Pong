@@ -5,7 +5,7 @@ class paddle extends squares {
     paddlewidth= playernets[0].netwidth*1/7;
     paddleheight= screenbottom * 1/7;
     paddley= centery - paddleheight*1/2;
-    this.paddlex = (paddlestartparameter == 0) ? playernets[0].netx + playernets[0].netwidth : playernets[1].netx - paddlewidth ;
+    this.paddlex = (paddlestartparameter == 0) ? playernets[0].netx + playernets[0].netwidth + paddlewidth*1/3 : playernets[1].netx - paddlewidth - paddlewidth*1/3 ;
     paddleside = paddlestartparameter;
   }//end paddle
   
@@ -14,6 +14,7 @@ class paddle extends squares {
     rect( paddlex, paddley,paddlewidth,paddleheight);
     fill(0);
     movement();
+   
   }//end draw
   void movement() {
     
@@ -32,4 +33,5 @@ class paddle extends squares {
       }
     }
   }//end movement
+ 
 }//end paddle class

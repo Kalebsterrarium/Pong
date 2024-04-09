@@ -14,9 +14,9 @@ Shape(float x, float y, float w, float h, color c) {
 } //end constructor
 //
 //methods
-void draw() {} // end draw()
+abstract void draw(); // end draw()
 //
-color nightModeColour() {
+abstract color nightModeColour() {
   color nm = 0;
 return nm;
 } //end nightModeColour

@@ -1,7 +1,9 @@
 class Fireworks extends Circle {
 //global variables
 //
-fireworks () {} //fireworks
+Fireworks (float x, float y, float w, float h, color c) {
+super(x,y,w,h,c);
+} //fireworks
 //
 //methods
 void draw() {} //end draw

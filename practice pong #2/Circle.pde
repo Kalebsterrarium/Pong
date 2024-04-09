@@ -12,7 +12,7 @@ abstract class Circle extends Shape {
   fill(rd);
   } // end draw
   //
-  color nightModeColour() {
+ abstract color nightModeColour() {
   color nm = 0;
 return nm;
   }// end nightModeColour

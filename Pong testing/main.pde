@@ -27,6 +27,7 @@ for ( int i =0;i< fireworks.length;i++) {
    playerpaddles[i] = new paddle(i);
    
   }
+  
 }//end setup
 //
 void draw() {
@@ -46,7 +47,8 @@ void draw() {
   fireworks[i].draw();
 }
 */
-
+println(pongball.movementx);
+println(pongball.movementy);
 }//end draw
 //
 void mousePressed() {

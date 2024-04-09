@@ -5,8 +5,8 @@ class ball extends circlez {
     this.ballx = circlex;
     this.bally = circley;
     this.balldiameter = circlediameter;
-     movementx = random(-5,5);
-   movementy = random(-5,5);
+     movementx = int(random(-9,9));
+   movementy = int(random(-9,9));
   }//end ball 
   
   ball(float gravityparameter, float scorex, float scorey) {
@@ -16,6 +16,7 @@ class ball extends circlez {
     gravity = gravityparameter;
   }
   void draw() {
+    
     ellipse(ballx,bally,balldiameter,balldiameter);
     movement();
     bounce();
@@ -24,8 +25,35 @@ class ball extends circlez {
     movementy+= gravity;
    ballx+=movementx;
    bally+=movementy;
+   if ( movementx == 0) movementx = int(random(-9,9));
+    if ( movementy == 0) movementy = int(random(-9,9));
+   if ( movementx < 5 && movementx > 0) {
+     while(movementx < 5) {
+    movementx = int(random(-9,9));
+     }
+   } else if (movementx > -5 && movementx < 0 ) {
+      while(movementx > -5) {
+    movementx = int(random(-9,9));
+     }
+   }
+   if ( movementy < 5 && movementy > 0) {
+   while(movementy < 5) {
+    movementy = int(random(-9,9));
+     }
+   } else if (movementy > -5 && movementy < 0 ) {
+     while(movementy > -5) {
+    movementy = int(random(-9,9));
+     }
+   }
+   
   }//end movement
   void bounce() {
+    if(ballx - balldiameter*1/2 <= playerpaddles[0].paddlex + playerpaddles[0].paddlewidth && ballx - balldiameter*1/2 >= playerpaddles[0].paddlex && bally  >= playerpaddles[0].paddley && bally  <= playerpaddles[0].paddley + playerpaddles[0].paddleheight ) {
+      movementx*=-1;
+    }
+ if (ballx + balldiameter*1/2 >= playerpaddles[1].paddlex && ballx + balldiameter*1/2 <= playerpaddles[1].paddlex + playerpaddles[1].paddlewidth && bally  >= playerpaddles[1].paddley && bally  <= playerpaddles[1].paddley + playerpaddles[1].paddleheight ) {
+   movementx*=-1;
+ }
     if (ballx + balldiameter*1/2 > displayWidth || ballx - balldiameter*1/2 < 0) {
       movementx*=-1;
       
