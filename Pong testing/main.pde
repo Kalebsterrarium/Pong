@@ -15,7 +15,7 @@ void setup() {
   pongtable = new squares();
 pongball = new ball();
 for ( int i =0;i< fireworks.length;i++) {
-  fireworks[i] = new ball(0.981, 0,0);
+  fireworks[i] = new ball(0.981, displayWidth*1/2,displayHeight*1/2);
 }
   for ( int i=0;i<playernets.length;i++) {
     
@@ -42,13 +42,12 @@ void draw() {
   
  pongball.draw();
 
- /*
+ if (playernets[0].score[0] == true) {
   for ( int i =0;i< fireworks.length;i++) {
   fireworks[i].draw();
 }
-*/
-println(pongball.movementx);
-println(pongball.movementy);
+ }
+
 }//end draw
 //
 void mousePressed() {
