@@ -15,8 +15,9 @@ void setup() {
   pongtable = new squares();
 pongball = new ball();
 for ( int i =0;i< fireworks.length;i++) {
-  fireworks[i] = new ball(0.981, displayWidth*1/2,displayHeight*1/2);
+  fireworks[i] = new ball(0.981, displayWidth*-1,displayHeight*-1);
 }
+ 
   for ( int i=0;i<playernets.length;i++) {
     
    playernets[i] = new net(i);
@@ -41,17 +42,24 @@ void draw() {
   }
   
  pongball.draw();
-
  if (playernets[0].score[0] == true) {
-  for ( int i =0;i< fireworks.length;i++) {
+ for ( int i =0;i< fireworks.length;i++) {
+  fireworks[i] = new ball(0.981, pongball.ballx,pongball.bally);
+}
+playernets[0].score[0] = false;
+ 
+ }
+ for ( int i =0;i< fireworks.length;i++) {
   fireworks[i].draw();
 }
- }
+
+  
 
 }//end draw
 //
 void mousePressed() {
-  
+ 
+ 
 }//end mousepressed
 //
 void keyPressed() {

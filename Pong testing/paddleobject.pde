@@ -1,6 +1,6 @@
 class paddle extends squares {
   float paddlex, paddley,paddlewidth,paddleheight;
-  float movementparameter = 5 , paddleside;
+  float movementparameter = 6 , paddleside;
   paddle(float paddlestartparameter) {
     paddlewidth= playernets[0].netwidth*1/7;
     paddleheight= screenbottom * 1/7;
