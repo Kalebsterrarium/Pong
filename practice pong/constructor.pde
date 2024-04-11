@@ -54,7 +54,7 @@ yourpaddle = new paddle(displayWidth, myBall.balldiameter);
 void draw() {
   //menu
   noStroke();
-   fill(menuBackGroundRed,menuBackGroundGreen,menuBackGroundBlue);//BackGround Colour
+   fill(#FFFFFF);//BackGround Colour
  rect(menuX,menuY,menuWidth,menuHeight);//BackGround
  /*
   fill(player1goalcolour);//player1goal Colour
