@@ -6,6 +6,8 @@ net[] playernets = new net[2];
 paddle[] playerpaddles = new paddle[2];
 boolean up[] = new boolean[2];
 boolean down[] = new boolean[2];
+lines[] goalLines = new lines[20];
+float LX1,LY1,LX2,LY2;
 
 //
 void setup() {
@@ -28,7 +30,26 @@ for ( int i =0;i< fireworks.length;i++) {
    playerpaddles[i] = new paddle(i);
    
   }
-  
+  LX1= 0;
+    LY1=pongtable.squarey;
+    LX2= playernets[0].netwidth;
+    LY2= LY1 + pongtable.squareheight*1/10;
+  for ( int i =0;i< goalLines.length;i++) {
+    
+  goalLines[i] = new lines(LX1,LY1,LX2,LY2);
+  if(i < 9) {
+    LY1+=pongtable.squareheight*1/10;
+    LY2+=pongtable.squareheight*1/10;
+  } else if (i == 9) {
+    LX1= playernets[1].netx;
+    LY1=pongtable.squarey;
+    LX2= displayWidth;
+    LY2= LY1 + pongtable.squareheight*1/10;
+  } else if (i > 9) {
+ LY1+=pongtable.squareheight*1/10;
+    LY2+=pongtable.squareheight*1/10;
+  }
+}
 }//end setup
 //
 void draw() {
@@ -49,11 +70,22 @@ void draw() {
 playernets[0].score[0] = false;
  
  }
+  
+ if (playernets[1].score[1] == true) {
+ 
+ for ( int i =0;i< fireworks.length;i++) {
+  fireworks[i] = new ball(0.981, pongball.ballx,pongball.bally);
+}
+playernets[1].score[1] = false;
+ 
+ }
  for ( int i =0;i< fireworks.length;i++) {
   fireworks[i].draw();
 }
 
-  
+  for ( int i =0;i< goalLines.length;i++) {
+  goalLines[i].draw();
+}
 
 }//end draw
 //

@@ -27,6 +27,7 @@ class net extends squares {
       }
     } else {
       if (  pongball.ballx + pongball.balldiameter*1/2 > netx) {
+        
         score[1] = true;
       }
     }
