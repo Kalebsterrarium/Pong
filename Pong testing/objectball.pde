@@ -7,8 +7,8 @@ class ball extends circlez {
     this.bally = circley;
     this.balldiameter = circlediameter;
     this.ballcolour = #000000; 
-     movementx = 1; //int(random(-9,9));
-   movementy = 1; //int(random(-9,9));
+     movementx = int(random(-9,9));
+   movementy = int(random(-9,9));
   }//end ball 
   
   ball(float gravityparameter, float scorex, float scorey) {

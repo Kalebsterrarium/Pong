@@ -14,9 +14,7 @@ class net extends squares {
   }//end net 
   
   void draw() {
-    fill(#FF0000);
-    rect(netx,nety,netwidth,netheight);
-    fill(0);
+   
     score();
   }
   

@@ -7,6 +7,7 @@ paddle[] playerpaddles = new paddle[2];
 boolean up[] = new boolean[2];
 boolean down[] = new boolean[2];
 lines[] goalLines = new lines[20];
+scoreboard[] playerboard = new scoreboard[2];
 float LX1,LY1,LX2,LY2;
 
 //
@@ -51,6 +52,9 @@ for ( int i =0;i< fireworks.length;i++) {
     LY2+=pongtable.squareheight*1/10;
   }
 }
+for ( int i =0;i< playerboard.length;i++) {
+  playerboard[i] = new scoreboard(i);
+}
 }//end setup
 //
 void draw() {
@@ -69,6 +73,7 @@ void draw() {
   fireworks[i] = new ball(0.981, pongball.ballx,pongball.bally);
 }
 playernets[0].score[0] = false;
+
  pongball = new ball();
  
  }
@@ -88,7 +93,9 @@ playernets[1].score[1] = false;
   for ( int i =0;i< goalLines.length;i++) {
   goalLines[i].draw();
 }
-
+for ( int i =0;i< playerboard.length;i++) {
+  playerboard[i].draw();
+}
 }//end draw
 //
 void mousePressed() {

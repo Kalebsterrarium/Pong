@@ -7,7 +7,7 @@ class lines extends shapes {
     lineY2=LY2;
   }
   void draw() {
-   stroke(#00FF00);
+   stroke(#00A8F0);
    strokeWeight(5);
   line(lineX1,lineY1,lineX2,lineY2);
   strokeWeight(1);
