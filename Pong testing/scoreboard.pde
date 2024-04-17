@@ -10,11 +10,12 @@ class scoreboard extends shapes {
     scoreheight= (displayHeight - pongtable.squareheight)/2;
  
     font = createFont("Calibri",20);
+    textAlign(CENTER,CENTER);
+    textFont(font,displayHeight);
   }//end scoreboard
   
   void draw() {
-    textAlign(CENTER,CENTER);
-    textFont(font,displayHeight);
+    
     textSize(40);
     fill(#FF0000);
     score();

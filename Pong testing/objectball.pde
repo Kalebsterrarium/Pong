@@ -2,7 +2,7 @@ class ball extends circlez {
    float gravity=0.0;
   float ballx,bally,balldiameter;
   color ballcolour;
- float XVari,Fx,Fx2;
+ 
   ball () {
     this.ballx = circlex;
     this.bally = circley;
@@ -26,6 +26,7 @@ class ball extends circlez {
     fill(0);
     movement();
     bounce();
+   
   }//end draw
   void movement () {
     movementy+= gravity;
@@ -78,14 +79,6 @@ class ball extends circlez {
     
   }//end bounce
   
-  void ballanimation(float functionStep1, float functionStep2, float functionStep3, float functionStep4, float functionStep5, float functionStep6) {
-    XVari++;
-    functionStep1 = 2*XVari;
-    functionStep2= functionStep1 - displayWidth;
-    functionStep3=sq(functionStep2);
-    functionStep4=sq((displayWidth/22));
-    functionStep5=functionStep4 - functionStep3;
-    functionStep6= (sqrt(functionStep5))*-1/2;
-    Fx= functionStep6 + displayHeight/2;
-  }//end ballanimation
+ 
+  
 }//end ball class

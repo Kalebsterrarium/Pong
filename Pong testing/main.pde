@@ -9,7 +9,10 @@ boolean down[] = new boolean[2];
 lines[] goalLines = new lines[20];
 scoreboard[] playerboard = new scoreboard[2];
 float LX1,LY1,LX2,LY2;
-
+float XVari=914,Fx,Fx2;
+ float functionStep1, functionStep2, functionStep3, functionStep4, functionStep5, functionStep6;
+ int XConversion;
+ float ballani[] = new float[88];
 //
 void setup() {
  
@@ -87,6 +90,7 @@ playernets[1].score[1] = false;
 playerboard[0].scorecounter++;
  pongball = new ball();
  }
+ 
  for ( int i =0;i< fireworks.length;i++) {
   fireworks[i].draw();
 }
@@ -97,6 +101,7 @@ playerboard[0].scorecounter++;
 for ( int i =0;i< playerboard.length;i++) {
   playerboard[i].draw();
 }
+ballanimation();
 }//end draw
 //
 void mousePressed() {
@@ -120,4 +125,30 @@ void keyReleased() {
   if ( key==CODED & keyCode==DOWN) down[1] = false;
 }
 //
+ void ballanimation() {
+    
+    XVari++;
+    if(XVari > 0 ) {
+    functionStep1 = 2*XVari;
+    functionStep2= functionStep1 - displayWidth;
+    functionStep3=sq(functionStep2);
+    functionStep4=sq((displayWidth/41));
+    functionStep5=functionStep4 - functionStep3;
+    functionStep6= (sqrt(functionStep5))*-1/2;
+    Fx= functionStep6 + displayHeight/2;
+    XConversion = int(XVari) - 914;
+    if(XConversion <= 87)  ballani[XConversion ] = Fx;
+    }
+    for(int i=0; i< ballani.length; i++) {
+      stroke(#000000);
+    strokeWeight(10);
+    
+    line(XVari,ballani[i],XVari,ballani[i]);
+      strokeWeight(1);
+  stroke(0);
+    }
+  
+    
+  }//end ballanimation
+  //
 //end driver
