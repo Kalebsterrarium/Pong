@@ -73,7 +73,7 @@ void draw() {
   fireworks[i] = new ball(0.981, pongball.ballx,pongball.bally);
 }
 playernets[0].score[0] = false;
-
+playerboard[1].scorecounter++;
  pongball = new ball();
  
  }
@@ -84,6 +84,7 @@ playernets[0].score[0] = false;
   fireworks[i] = new ball(0.981, pongball.ballx,pongball.bally);
 }
 playernets[1].score[1] = false;
+playerboard[0].scorecounter++;
  pongball = new ball();
  }
  for ( int i =0;i< fireworks.length;i++) {
