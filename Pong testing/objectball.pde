@@ -26,7 +26,8 @@ class ball extends circlez {
     fill(0);
     movement();
     bounce();
-   
+   ballx = mouseX;
+   bally = mouseY;
   }//end draw
   void movement () {
     movementy+= gravity;

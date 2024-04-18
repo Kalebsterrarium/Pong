@@ -5,7 +5,7 @@ class paddle extends squares {
     paddlewidth= playernets[0].netwidth*1/11;
     paddleheight= screenbottom * 1/7;
     paddley= centery - paddleheight*1/2;
-    this.paddlex = (paddlestartparameter == 0) ? playernets[0].netx + playernets[0].netwidth + paddlewidth*1/3 : playernets[1].netx - paddlewidth - paddlewidth*1/3 ;
+    this.paddlex = (paddlestartparameter == 0) ? playernets[0].netx + playernets[0].netwidth + paddlewidth*2 : playernets[1].netx - paddlewidth - paddlewidth*2 ;
     paddleside = paddlestartparameter;
   }//end paddle
   

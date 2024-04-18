@@ -9,13 +9,25 @@ boolean down[] = new boolean[2];
 lines[] goalLines = new lines[20];
 scoreboard[] playerboard = new scoreboard[2];
 float LX1,LY1,LX2,LY2;
-float XVari=914,Fx,Fx2;
+float Fx,Fx2,XDraw;
  float functionStep1, functionStep2, functionStep3, functionStep4, functionStep5, functionStep6;
- int XConversion;
- float ballani[] = new float[88];
+ int XConversion,ballaniDraw;
+ float ballaniY[] = new float[88];
+ float ballaniX[] = new float[88];
 //
 void setup() {
- 
+  for(float XVari=914;XVari < 1001;XVari++) {
+    functionStep1 = 2*XVari;
+    functionStep2= functionStep1 - displayWidth;
+    functionStep3=sq(functionStep2);
+    functionStep4=sq((displayWidth/41));
+    functionStep5=functionStep4 - functionStep3;
+    functionStep6= (sqrt(functionStep5))*-1/2;
+    Fx= functionStep6 + displayHeight/2;
+    XConversion = int(XVari);
+    ballaniY[XConversion-914] = Fx;
+    ballaniX[XConversion-914] = XVari;
+   }
   fullScreen();
  
   pongtable = new squares();
@@ -69,31 +81,44 @@ void draw() {
   for ( int i=0;i<playernets.length;i++) {
    playernets[i].draw();
   }
-  
- pongball.draw();
+  if ( playernets[0].score[0] == false &&  playernets[1].score[1] == false) {
+    pongball.draw();
+    
+  }
+ /* for ( int i =0;i< fireworks.length;i++) {
+  fireworks[i].draw();
+} */
  if (playernets[0].score[0] == true) {
+   if(ballaniDraw ==0) {
  for ( int i =0;i< fireworks.length;i++) {
   fireworks[i] = new ball(0.981, pongball.ballx,pongball.bally);
 }
+   }
+ballanimation();
 playernets[0].score[0] = false;
+if ( ballaniDraw == ballaniX.length) {
 playerboard[1].scorecounter++;
+
  pongball = new ball();
- 
+}
  }
   
  if (playernets[1].score[1] == true) {
- 
+ if (ballaniDraw == 0) {
  for ( int i =0;i< fireworks.length;i++) {
   fireworks[i] = new ball(0.981, pongball.ballx,pongball.bally);
 }
+ }
+ballanimation();
 playernets[1].score[1] = false;
+
+if ( ballaniDraw == ballaniX.length) {
 playerboard[0].scorecounter++;
  pongball = new ball();
+}
  }
  
- for ( int i =0;i< fireworks.length;i++) {
-  fireworks[i].draw();
-}
+ 
 
   for ( int i =0;i< goalLines.length;i++) {
   goalLines[i].draw();
@@ -101,7 +126,8 @@ playerboard[0].scorecounter++;
 for ( int i =0;i< playerboard.length;i++) {
   playerboard[i].draw();
 }
-ballanimation();
+
+
 }//end draw
 //
 void mousePressed() {
@@ -127,27 +153,19 @@ void keyReleased() {
 //
  void ballanimation() {
     
-    XVari++;
-    if(XVari > 0 ) {
-    functionStep1 = 2*XVari;
-    functionStep2= functionStep1 - displayWidth;
-    functionStep3=sq(functionStep2);
-    functionStep4=sq((displayWidth/41));
-    functionStep5=functionStep4 - functionStep3;
-    functionStep6= (sqrt(functionStep5))*-1/2;
-    Fx= functionStep6 + displayHeight/2;
-    XConversion = int(XVari) - 914;
-    if(XConversion <= 87)  ballani[XConversion ] = Fx;
-    }
-    for(int i=0; i< ballani.length; i++) {
-      stroke(#000000);
-    strokeWeight(10);
-    
-    line(XVari,ballani[i],XVari,ballani[i]);
-      strokeWeight(1);
-  stroke(0);
-    }
   
+    
+    for( int i=0;i < ballaniDraw;i++) {
+      strokeWeight(5);
+    line(ballaniX[i],ballaniY[i],ballaniX[i],ballaniY[i]);
+     line(ballaniX[i],displayHeight-ballaniY[i],ballaniX[i],displayHeight-ballaniY[i]);
+     strokeWeight(0);
+    }
+   ballaniDraw++;
+   if (ballaniDraw > ballaniX.length) {
+     ballaniDraw =0;
+   }
+    
     
   }//end ballanimation
   //
