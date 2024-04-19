@@ -26,8 +26,8 @@ class ball extends circlez {
     fill(0);
     movement();
     bounce();
-   ballx = mouseX;
-   bally = mouseY;
+   
+   
   }//end draw
   void movement () {
     movementy+= gravity;
@@ -61,10 +61,11 @@ class ball extends circlez {
      
   }//end movement
   void bounce() {
-    if(ballx - balldiameter*1/2 >= playerpaddles[0].paddlex  && ballx - balldiameter*1/2 <= playerpaddles[0].paddlex + playerpaddles[0].paddlewidth && bally + balldiameter*1/2 >= playerpaddles[0].paddley && bally + balldiameter*1/2 <= playerpaddles[0].paddley + playerpaddles[0].paddleheight ) {
+    if((ballx - balldiameter*1/2 >= playerpaddles[0].paddlex && ballx - balldiameter*1/2 <= playerpaddles[0].paddlex + playerpaddles[0].paddlewidth || ballx >= playerpaddles[0].paddlex && ballx <= playerpaddles[0].paddlex + playerpaddles[0].paddlewidth || ballx - balldiameter*1/3 >= playerpaddles[0].paddlex && ballx - balldiameter*1/3 <= playerpaddles[0].paddlex + playerpaddles[0].paddlewidth) && bally + balldiameter*1/2 >= playerpaddles[0].paddley && bally - balldiameter*1/2 <= playerpaddles[0].paddley + playerpaddles[0].paddleheight ) {
       movementx*=-1;
       ballx = playerpaddles[0].paddlex + playerpaddles[0].paddlewidth + balldiameter*1/2;
-    }
+      println("ball bounce");
+    } else println("not bouncing");
  if (ballx + balldiameter*1/2 >= playerpaddles[1].paddlex && ballx + balldiameter*1/2 <= playerpaddles[1].paddlex + playerpaddles[1].paddlewidth && bally  >= playerpaddles[1].paddley && bally - balldiameter*1/2  <= playerpaddles[1].paddley + playerpaddles[1].paddleheight ) {
    movementx*=-1;
     ballx = playerpaddles[1].paddlex - balldiameter*1/2;

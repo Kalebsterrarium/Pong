@@ -20,7 +20,7 @@ void setup() {
     functionStep1 = 2*XVari;
     functionStep2= functionStep1 - displayWidth;
     functionStep3=sq(functionStep2);
-    functionStep4=sq((displayWidth/41));
+    functionStep4=sq((displayWidth/67));
     functionStep5=functionStep4 - functionStep3;
     functionStep6= (sqrt(functionStep5))*-1/2;
     Fx= functionStep6 + displayHeight/2;
@@ -85,9 +85,9 @@ void draw() {
     pongball.draw();
     
   }
- /* for ( int i =0;i< fireworks.length;i++) {
+  for ( int i =0;i< fireworks.length;i++) {
   fireworks[i].draw();
-} */
+} 
  if (playernets[0].score[0] == true) {
    if(ballaniDraw ==0) {
  for ( int i =0;i< fireworks.length;i++) {
@@ -131,8 +131,7 @@ for ( int i =0;i< playerboard.length;i++) {
 }//end draw
 //
 void mousePressed() {
- 
- 
+
 }//end mousepressed
 //
 void keyPressed() {
