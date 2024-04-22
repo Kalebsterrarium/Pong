@@ -1,6 +1,6 @@
 //global variables
 ball pongball;
-ball[] fireworks = new ball[10];
+ball[] fireworks = new ball[20];
 squares pongtable;
 net[] playernets = new net[2];
 paddle[] playerpaddles = new paddle[2];
