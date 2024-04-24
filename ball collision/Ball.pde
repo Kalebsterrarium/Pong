@@ -25,8 +25,8 @@ void draw() {
 //println(x + "-This is X");
  // println(fx + "This is Y");
  // println(fx - displayHeight/2);
-  println((displayWidth/42.0)/( sqrt(2)));
-  println(displayWidth);
+ // println((displayWidth/42.0)/( sqrt(2)));
+ // println(displayWidth);
  
  // println(fx2);
   //println(displayWidth);
@@ -36,12 +36,14 @@ void draw() {
   line(x,fx,x,fx);//starts at ~850 ,ends at ~1000
   line(x,fg,x,fg);
   line(900,0,900,displayHeight);
+  line(0,displayHeight/2,displayWidth,displayHeight/2);
   strokeWeight(3);
   line(x2,(displayHeight*1/2)-((displayWidth/42.0)/sqrt(2)),x2,(displayHeight/2)-((displayWidth/42.0)/sqrt(2)));
    line( displayWidth*1/2 - (radius-(sqrt(8*sq(radius)))/4),(displayHeight*1/2)+((displayWidth/42.0)/sqrt(2)),(radius-(sqrt(8*sq(radius)))/4)+ displayWidth*1/2,(displayHeight/2)+((displayWidth/42.0)/sqrt(2)));
-   line(x,random(displayHeight),displayWidth,0);
+   
   strokeWeight(1);
-  println(radius);
+//  println(mouseX);
+  //println(radius);
   println(radius-(sqrt(8*sq(radius)))/4);
 }//end draw 
 
