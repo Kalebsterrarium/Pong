@@ -38,10 +38,10 @@ void draw() {
   line(900,0,900,displayHeight);
   line(0,displayHeight/2,displayWidth,displayHeight/2);
   strokeWeight(3);
-  line(x2,(displayHeight*1/2)-((displayWidth/42.0)/sqrt(2)),x2,(displayHeight/2)-((displayWidth/42.0)/sqrt(2)));
+ // line(x2,(displayHeight*1/2)-((displayWidth/42.0)/sqrt(2)),x2,(displayHeight/2)-((displayWidth/42.0)/sqrt(2)));
    line( displayWidth*1/2 - (radius-(sqrt(8*sq(radius)))/4),(displayHeight*1/2)+((displayWidth/42.0)/sqrt(2)),(radius-(sqrt(8*sq(radius)))/4)+ displayWidth*1/2,(displayHeight/2)+((displayWidth/42.0)/sqrt(2)));
    line(32+displayWidth*1/2,507,32+displayWidth*1/2,507);
-   line(displayWidth*1/2 - 32,58.4,displayWidth*1/2 - 32,58.4);
+   line(displayWidth*1/2 - 32,displayHeight*1/2 - 32 ,displayWidth*1/2 - 32,displayHeight*1/2 - 32);
   strokeWeight(1);
   //println(x - displayWidth*1/2);
 //  println(mouseX);

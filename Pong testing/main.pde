@@ -64,7 +64,7 @@ for ( int i =0;i< fireworks.length;i++) {
     LY2= LY1 + pongtable.squareheight*1/10;
   } else if (i > 9) {
  LY1+=pongtable.squareheight*1/10;
-    LY2+=pongtable.squareheight*1/10;
+    LY2+=pongtable.squareheight*1/10 ;
   }
 }
 for ( int i =0;i< playerboard.length;i++) {
