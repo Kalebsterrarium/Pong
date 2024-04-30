@@ -6,9 +6,14 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 //
 //global variables
+ArrayList<Shape> shapes = new ArrayList<Shape>();
 //
 void setup() {
-  
+  fullScreen();
+  //display - students to add
+  //audio - Students to add
+  //classes - students to add, hint: TABS ( teacher to add first) 
+  //build local objects - students to add, i.e. start with ball, then pongtable, etc.
 }//end setup
 //
 void draw() {
