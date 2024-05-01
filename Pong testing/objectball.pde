@@ -1,15 +1,25 @@
 class ball extends circlez {
    float gravity=0.0;
-  float ballx,bally,balldiameter;
+  float ballx,bally,balldiameter,ballradius;
   color ballcolour;
- 
+  float maththingy;
+ float ballcollisionX[] = new float[2];
+    float ballcollisionY[] = new float[2];
+    int BCcounter1[] = new int [4];
+    int BCcounter2[] = new int [4];
   ball () {
     this.ballx = circlex;
     this.bally = circley;
     this.balldiameter = circlediameter;
     this.ballcolour = #000000; 
+    ballradius = balldiameter/2;
      movementx = int(random(-9,9));
-   movementy = int(random(-9,9));
+   movementy = int(random(-9,9)); 
+    maththingy = ballradius / sqrt(2);
+    for(int i=0; i<2; i++) {
+    ballcollisionX[i] =  displayWidth*1/2 + (maththingy * pow(-1,i));  
+    ballcollisionY[i] =  displayHeight*1/2 + (maththingy * pow(-1,i));
+    }
   }//end ball 
   
   ball(float gravityparameter, float scorex, float scorey) {
@@ -25,12 +35,15 @@ class ball extends circlez {
     ellipse(ballx,bally,balldiameter,balldiameter);
     fill(0);
     movement();
+    ballcollision();
     bounce();
    
    
   }//end draw
   void movement () {
     movementy+= gravity;
+    movementx =0;
+   movementy=0;
    ballx+=movementx;
    bally+=movementy;
   
@@ -80,7 +93,31 @@ class ball extends circlez {
     }
     
   }//end bounce
-  
+  void ballcollision() {
+    
+   
+    
+    
+    if(gravity == 0) {
+      for ( int i=0; i< 4; i++) {
+    fill(#FF0000);
+stroke(#FF0000);
+strokeWeight(5);
+line( ballcollisionX[BCcounter1[i]] ,ballcollisionY[BCcounter2[i]], ballcollisionX[BCcounter1[i]],ballcollisionY[BCcounter2[i]]);
+line( ballcollisionX[0] ,ballcollisionY[0], ballcollisionX[0],ballcollisionY[0] );
+line( ballcollisionX[0] , ballcollisionY[1] , ballcollisionX[0], ballcollisionY[1] );
+line( ballcollisionX[1] , ballcollisionY[0], ballcollisionX[1],ballcollisionY[0]);
+line( ballcollisionX[1] , ballcollisionY[1], ballcollisionX[1], ballcollisionY[1] );
+line(displayWidth*1/2 + pongball.balldiameter*1/2 ,displayHeight*1/2 ,displayWidth*1/2 + pongball.balldiameter*1/2 ,displayHeight*1/2 );
+line(displayWidth*1/2 - pongball.balldiameter*1/2 ,displayHeight*1/2 ,displayWidth*1/2 - pongball.balldiameter*1/2,displayHeight*1/2  );
+line(displayWidth*1/2  ,displayHeight*1/2  + pongball.balldiameter*1/2,displayWidth*1/2 ,displayHeight*1/2  + pongball.balldiameter*1/2);
+line(displayWidth*1/2  ,displayHeight*1/2  - pongball.balldiameter*1/2,displayWidth*1/2,displayHeight*1/2  - pongball.balldiameter*1/2 );
+stroke(0);
+strokeWeight(1);
+fill(0);
+      }
+    }
+  }//end ballcollision
  
   
 }//end ball class

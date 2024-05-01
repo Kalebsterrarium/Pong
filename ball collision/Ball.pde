@@ -33,6 +33,7 @@ void draw() {
   linexvari=x;
   linetophalfy=fx;
   linebottomhalfy=fg;
+   ellipse(displayWidth*1/2,displayHeight*1/2,displayWidth/21,displayWidth/21);
   line(x,fx,x,fx);//starts at ~850 ,ends at ~1000
   line(x,fg,x,fg);
   line(900,0,900,displayHeight);
@@ -41,7 +42,8 @@ void draw() {
  // line(x2,(displayHeight*1/2)-((displayWidth/42.0)/sqrt(2)),x2,(displayHeight/2)-((displayWidth/42.0)/sqrt(2)));
    line( displayWidth*1/2 - (radius-(sqrt(8*sq(radius)))/4),(displayHeight*1/2)+((displayWidth/42.0)/sqrt(2)),(radius-(sqrt(8*sq(radius)))/4)+ displayWidth*1/2,(displayHeight/2)+((displayWidth/42.0)/sqrt(2)));
    line(32+displayWidth*1/2,507,32+displayWidth*1/2,507);
-   line(displayWidth*1/2 - 32,displayHeight*1/2 - 32 ,displayWidth*1/2 - 32,displayHeight*1/2 - 32);
+   line(displayWidth*1/2 - 32,displayHeight*1/2 + 32 ,displayWidth*1/2 - 32,displayHeight*1/2 + 32);
+  
   strokeWeight(1);
   //println(x - displayWidth*1/2);
 //  println(mouseX);
@@ -49,6 +51,9 @@ void draw() {
   //println(radius-(sqrt(8*sq(radius)))/4);
   if ( x == displayWidth*1/2 - 32) println(fx);
   println(507-displayHeight/2 + 45.7*2);
+  for (int i=0;i<2; i++) {
+    println(pow(-1,i));
+  }
 }//end draw 
 
 void mousePressed() {

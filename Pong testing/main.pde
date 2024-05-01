@@ -14,13 +14,14 @@ float Fx,Fx2,XDraw;
  int XConversion,ballaniDraw;
  float ballaniY[] = new float[88];
  float ballaniX[] = new float[88];
+ 
 //
 void setup() {
   for(float XVari=914;XVari < 1001;XVari++) {
     functionStep1 = 2*XVari;
     functionStep2= functionStep1 - displayWidth;
     functionStep3=sq(functionStep2);
-    functionStep4=sq((displayWidth/67));
+    functionStep4=sq((displayWidth/60));
     functionStep5=functionStep4 - functionStep3;
     functionStep6= (sqrt(functionStep5))*-1/2;
     Fx= functionStep6 + displayHeight/2;
@@ -126,7 +127,6 @@ playerboard[0].scorecounter++;
 for ( int i =0;i< playerboard.length;i++) {
   playerboard[i].draw();
 }
-
 
 }//end draw
 //
