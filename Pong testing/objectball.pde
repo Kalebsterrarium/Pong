@@ -20,6 +20,12 @@ class ball extends circlez {
     ballcollisionX[i] =  displayWidth*1/2 + (maththingy * pow(-1,i));  
     ballcollisionY[i] =  displayHeight*1/2 + (maththingy * pow(-1,i));
     }
+    for (int n=0;n<4;n++) {
+  BCcounter1[n]=  int(0.25*(cos(PI*n) -1 + 2*n));
+  BCcounter2[n]=  int((0.5*cos((PI*float(n)))) + 0.5);
+  println(BCcounter1[n]);
+  println(BCcounter2[n]);
+}
   }//end ball 
   
   ball(float gravityparameter, float scorex, float scorey) {
@@ -78,7 +84,7 @@ class ball extends circlez {
       movementx*=-1;
       ballx = playerpaddles[0].paddlex + playerpaddles[0].paddlewidth + balldiameter*1/2;
       println("ball bounce");
-    } else println("not bouncing");
+    } //else println("not bouncing");
  if (ballx + balldiameter*1/2 >= playerpaddles[1].paddlex && ballx + balldiameter*1/2 <= playerpaddles[1].paddlex + playerpaddles[1].paddlewidth && bally  >= playerpaddles[1].paddley && bally - balldiameter*1/2  <= playerpaddles[1].paddley + playerpaddles[1].paddleheight ) {
    movementx*=-1;
     ballx = playerpaddles[1].paddlex - balldiameter*1/2;
@@ -103,7 +109,9 @@ class ball extends circlez {
     fill(#FF0000);
 stroke(#FF0000);
 strokeWeight(5);
+
 line( ballcollisionX[BCcounter1[i]] ,ballcollisionY[BCcounter2[i]], ballcollisionX[BCcounter1[i]],ballcollisionY[BCcounter2[i]]);
+/*
 line( ballcollisionX[0] ,ballcollisionY[0], ballcollisionX[0],ballcollisionY[0] );
 line( ballcollisionX[0] , ballcollisionY[1] , ballcollisionX[0], ballcollisionY[1] );
 line( ballcollisionX[1] , ballcollisionY[0], ballcollisionX[1],ballcollisionY[0]);
@@ -112,6 +120,7 @@ line(displayWidth*1/2 + pongball.balldiameter*1/2 ,displayHeight*1/2 ,displayWid
 line(displayWidth*1/2 - pongball.balldiameter*1/2 ,displayHeight*1/2 ,displayWidth*1/2 - pongball.balldiameter*1/2,displayHeight*1/2  );
 line(displayWidth*1/2  ,displayHeight*1/2  + pongball.balldiameter*1/2,displayWidth*1/2 ,displayHeight*1/2  + pongball.balldiameter*1/2);
 line(displayWidth*1/2  ,displayHeight*1/2  - pongball.balldiameter*1/2,displayWidth*1/2,displayHeight*1/2  - pongball.balldiameter*1/2 );
+*/
 stroke(0);
 strokeWeight(1);
 fill(0);
