@@ -23,8 +23,10 @@ class ball extends circlez {
     ballcollisionY[i] =  displayHeight*1/2 + (maththingy * pow(-1,i));
     }
     for(int i=0; i<3; i++) {
-    ballcollisionX2[i] =  displayWidth*1/2 + (ballradius * cos(PI*i));  
-    ballcollisionY2[i] =  displayHeight*1/2 + (ballradius * cos(PI*i));
+    ballcollisionX2[i] =  displayWidth*1/2 + (ballradius * (cos(PI*i) * cos(((3*PI)/2)*i)));  
+    ballcollisionY2[i] =  displayHeight*1/2 + (ballradius * (-1*(cos(PI*i)) * cos(((3*PI)/2)*i)));
+    println(ballcollisionX2[i] );
+    println(ballcollisionX2[i] );
     }
     for (int n=0;n<4;n++) {
   BCcounter1[n]=  int(0.25*(cos(PI*n) -1 + 2*n));
@@ -119,10 +121,10 @@ strokeWeight(5);
 line( ballcollisionX[BCcounter1[i]] ,ballcollisionY[BCcounter2[i]], ballcollisionX[BCcounter1[i]],ballcollisionY[BCcounter2[i]]);
 line( ballcollisionX2[BCcounter1[i]] ,ballcollisionY2[BCcounter1[i]], ballcollisionX2[BCcounter2[i]],ballcollisionY2[BCcounter2[i]]);
 
-line(displayWidth*1/2 + pongball.balldiameter*1/2 ,displayHeight*1/2 ,displayWidth*1/2 + pongball.balldiameter*1/2 ,displayHeight*1/2 );
-line(displayWidth*1/2 - pongball.balldiameter*1/2 ,displayHeight*1/2 ,displayWidth*1/2 - pongball.balldiameter*1/2,displayHeight*1/2  );
-line(displayWidth*1/2  ,displayHeight*1/2  + pongball.balldiameter*1/2,displayWidth*1/2 ,displayHeight*1/2  + pongball.balldiameter*1/2);
-line(displayWidth*1/2  ,displayHeight*1/2  - pongball.balldiameter*1/2,displayWidth*1/2,displayHeight*1/2  - pongball.balldiameter*1/2 );
+//line(displayWidth*1/2 + pongball.balldiameter*1/2 ,displayHeight*1/2 ,displayWidth*1/2 + pongball.balldiameter*1/2 ,displayHeight*1/2 );
+//line(displayWidth*1/2 - pongball.balldiameter*1/2 ,displayHeight*1/2 ,displayWidth*1/2 - pongball.balldiameter*1/2,displayHeight*1/2  );
+//line(displayWidth*1/2  ,displayHeight*1/2  + pongball.balldiameter*1/2,displayWidth*1/2 ,displayHeight*1/2  + pongball.balldiameter*1/2);
+//line(displayWidth*1/2  ,displayHeight*1/2  - pongball.balldiameter*1/2,displayWidth*1/2,displayHeight*1/2  - pongball.balldiameter*1/2 );
 
 
 stroke(0);
