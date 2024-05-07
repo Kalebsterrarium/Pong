@@ -9,6 +9,8 @@ class ball extends circlez {
     float ballcollisionY2[] = new float[3];
     int BCcounter1[] = new int [4];
     int BCcounter2[] = new int [4];
+     int BCcounter3[] = new int [4];
+    int BCcounter4[] = new int [4];
   ball () {
     this.ballx = circlex;
     this.bally = circley;
@@ -31,8 +33,8 @@ class ball extends circlez {
     for (int n=0;n<4;n++) {
   BCcounter1[n]=  int(0.25*(cos(PI*n) -1 + 2*n));
   BCcounter2[n]=  int((0.5*cos((PI*float(n)))) + 0.5);
-  println( BCcounter1[n]);
-  // println( BCcounter2[n]);
+ BCcounter3[n]=  int(0.25*(cos(PI*n) -1 + 2*n));
+  BCcounter4[n]=  int((0.5*cos((PI*float(n)))) + 0.5);
 }
   }//end ball 
   
@@ -119,12 +121,12 @@ stroke(#FF0000);
 strokeWeight(5);
 
 line( ballcollisionX[BCcounter1[i]] ,ballcollisionY[BCcounter2[i]], ballcollisionX[BCcounter1[i]],ballcollisionY[BCcounter2[i]]);
-line( ballcollisionX2[BCcounter1[i]] ,ballcollisionY2[BCcounter1[i]], ballcollisionX2[BCcounter2[i]],ballcollisionY2[BCcounter2[i]]);
+//line( ballcollisionX2[BCcounter3[i]] ,ballcollisionY2[BCcounter4[i]], ballcollisionX2[BCcounter3[i]],ballcollisionY2[BCcounter4[i]]);
 
-//line(displayWidth*1/2 + pongball.balldiameter*1/2 ,displayHeight*1/2 ,displayWidth*1/2 + pongball.balldiameter*1/2 ,displayHeight*1/2 );
-//line(displayWidth*1/2 - pongball.balldiameter*1/2 ,displayHeight*1/2 ,displayWidth*1/2 - pongball.balldiameter*1/2,displayHeight*1/2  );
-//line(displayWidth*1/2  ,displayHeight*1/2  + pongball.balldiameter*1/2,displayWidth*1/2 ,displayHeight*1/2  + pongball.balldiameter*1/2);
-//line(displayWidth*1/2  ,displayHeight*1/2  - pongball.balldiameter*1/2,displayWidth*1/2,displayHeight*1/2  - pongball.balldiameter*1/2 );
+line(ballcollisionX2[0] ,ballcollisionY2[1] ,ballcollisionX2[0] ,ballcollisionY2[1] );
+line(ballcollisionX2[2],ballcollisionY2[1] ,ballcollisionX2[2],ballcollisionY2[1]  );
+line(ballcollisionX2[1]  ,ballcollisionY2[0],ballcollisionX2[1] ,ballcollisionY2[0]);
+line(ballcollisionX2[1]  ,ballcollisionY2[2],ballcollisionX2[1],ballcollisionY2[2] );
 
 
 stroke(0);
