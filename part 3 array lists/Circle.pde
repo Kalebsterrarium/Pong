@@ -6,15 +6,12 @@ abstract class Circle extends Shape {
   }// end Circle
   //
   //method
-  void draw() {
-  fill(c);
-  ellipse(x,y,w,h);
-  fill(rd);
-  } // end draw
+ abstract void draw(); // end draw
   //
-  color nightModeColour() {
-  color nm = 0;
-return nm;
-  }// end nightModeColour
+ abstract color nightModeColour();
+  //
+  abstract void updateSetup( float variable1, float variable2, float variable3, float variable4, float variable5, float variable6, float variable7, float variable8, float variable9, float variable10, float variable11 );
+  //
+} //End Shape
   //
 } //end circle
