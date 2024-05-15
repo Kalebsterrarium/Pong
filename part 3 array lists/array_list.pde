@@ -10,7 +10,7 @@ ArrayList<Shape> shapes = new ArrayList<Shape>();
 //
 void setup() {
   fullScreen();
-  balldiameter = displayWidth*1/65;
+  int balldiameter = displayWidth*1/65;
   //display - students to add
   //audio - Students to add
   //classes - students to add, hint: TABS ( teacher to add first) 
