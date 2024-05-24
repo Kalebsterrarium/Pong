@@ -1,4 +1,4 @@
-abstract class PongTable extends Rectangle {
+ class PongTable extends Rectangle {
   
    float leftnetx_top, leftnety_top, leftnetx_bottom, leftnety_bottom;
   float rightnetx_top, rightnety_top, rightnetx_bottom, rightnety_bottom;

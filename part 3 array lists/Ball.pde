@@ -48,6 +48,7 @@ class Balls extends Circle {
     //ball movement 
     xspeed= xdirection();
     yspeed= ydirection();
+    println(xspeed);
     //
     xacceleration=1;
     yacceleration=1;
@@ -62,23 +63,23 @@ class Balls extends Circle {
   //
   float xdirection() {
     float xdirection = int(random(-9,9));
-     if ( xdirection == 0) xdirection = int(random(-9,9));
+     while ( xdirection == 0) xdirection = int(random(-9,9));
    if ( xdirection < 5 && xdirection > 0) {
      while(xdirection < 5) {
-    xdirection = int(random(-9,9));
+    xdirection = int(random(9));
     
      }
    } else if (xdirection > -5 && xdirection < 0 ) {
       while(xdirection > -5) {
-    xdirection = int(random(-9,9));
+    xdirection = int(random(-9));
      }
    }
-   return xdirection();
+   return xdirection;
   }//end xdirection
   //
   float ydirection() {
      float ydirection = int(random(-9,9));
-     if ( ydirection == 0) ydirection = int(random(-9,9));
+     while ( ydirection == 0) ydirection = int(random(-9,9));
    if ( ydirection < 5 && ydirection > 0) {
      while(ydirection < 5) {
     ydirection = int(random(-9,9));
@@ -89,7 +90,7 @@ class Balls extends Circle {
     ydirection = int(random(-9,9));
      }
    }
-   return ydirection();
+   return ydirection;
   }//end ydirection
   //
   void move() {
